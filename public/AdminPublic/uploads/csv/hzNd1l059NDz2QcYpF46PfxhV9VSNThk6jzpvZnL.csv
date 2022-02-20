@@ -1,0 +1,3 @@
+service number,client number,representative number,sender name,sender phone,sender area number,sender sub area number,sender address,receiver name,receiver phone,receiver area number,receiver subarea number,receiver address,order fees,payment method,status
+1,2,3,mohammed,92121212,2,2,bahri,ali,92121232,2,2,omdurman,200,on_sending,pending
+1,2,1,hassan,99121221,2,2,omdurman,omer,93768323,1,2,buri,100,balance,inProgress

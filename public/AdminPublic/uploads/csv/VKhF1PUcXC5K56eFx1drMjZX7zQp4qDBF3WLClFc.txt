@@ -1,0 +1,2 @@
+service number,client number,representative number,sender name,sender phone,sender area number,sender sub area number,sender address,receiver name,receiver phone,receiver area number,receiver subarea number,receiver address,order fees,payment method,status,order date
+1,1,1,othman,92232392,1,2,khartoum,ahmed,9090912121,1,2,bahri,100,balance,pending,1/12/1900
