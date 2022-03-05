@@ -15,12 +15,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Compile CSS and Javascript
+      uses: actions/checkout@v2
+      name: Compile CSS and Javascript
         run: |
           npm ci
           npm run prod
-      - name: Configure PHP 8.0
+      name: Configure PHP 8.0
         uses: shivammathur/setup-php@master
         with:
         php-version: 8.0
