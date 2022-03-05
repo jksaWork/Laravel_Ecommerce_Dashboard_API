@@ -23,11 +23,11 @@ jobs:
           npm install
           npm run prod
 
-      - name: Check php is Installed
-      - uses: shivammathur/setup-php@master
+      - name:  Configure PHP 8.0
+        uses: shivammathur/setup-php@master
         with :
-        php-version: '8.0'
-        extensions: mbstring , ctype , fileinfo , openssl , PDO , bcmatch , json , tokenizer , xml
+        php-version: 8.0
+        extensions: mbstring, ctype, fileinfo, openssl, PDO, bcmath, json, tokenizer, xml
 
         - name : install Composer
         - run : composer install --no-dev --nointeraction --prefer-dist ,
