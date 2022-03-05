@@ -4,11 +4,12 @@ namespace App\Http\Livewire;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Traits\CartTrats;
 use Livewire\Component;
 use Livewire\WithPagination;
 class HomeLivewire extends Component
 {
-    use WithPagination;
+    use WithPagination , CartTrats;
     public $PaginateZise = 12;
     public $SortBy;
     public $public_id;

@@ -1,4 +1,8 @@
-<html class="js sizes customelements history postmessage websockets picture webworkers pointerevents webgl srcset cssanimations csscolumns csscolumns-width csscolumns-span csscolumns-fill csscolumns-gap csscolumns-rule csscolumns-rulecolor csscolumns-rulestyle csscolumns-rulewidth no-csscolumns-breakbefore no-csscolumns-breakafter no-csscolumns-breakinside flexbox" lang="en"><head>
+<html
+    class="js sizes customelements history postmessage websockets picture webworkers pointerevents webgl srcset cssanimations csscolumns csscolumns-width csscolumns-span csscolumns-fill csscolumns-gap csscolumns-rule csscolumns-rulecolor csscolumns-rulestyle csscolumns-rulewidth no-csscolumns-breakbefore no-csscolumns-breakafter no-csscolumns-breakinside flexbox"
+    lang="en">
+
+<head>
     <meta charset="UTF-8">
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -21,26 +25,27 @@
     <!--====== App ======-->
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
 </head>
+
 <body>
     <div class="preloader">
         <div class="preloader__wrap">
-
-            <img class="preloader__img" src="images/preloader.png" alt=""></div>
+            <img class="preloader__img" src="images/preloader.png" alt="">
+        </div>
     </div>
 
     <!--====== Main App ======-->
     <div id="app">
         <!--====== Main Header ======-->
-     <x:notify-messages />
-    @include('layouts.includes.header')
+        <x:notify-messages />
+        @include('layouts.includes.header')
 
         <!--====== Section 1 ======-->
 
-    {{-- @yield('content') --}}
-    {{ $slot  ?? ' -- '}}
-    @yield('content')
+        {{-- @yield('content') --}}
+        {{ $slot ?? ' -- '}}
+        @yield('content')
 
-    @include('layouts.includes.footer')
+        @include('layouts.includes.footer')
         <!--====== End - Main Header ======-->
 
 
@@ -76,7 +81,8 @@
     <script src="{{ asset('assets/js/jquery.shopnav.js') }}"></script>
 
     <!--====== App ======-->
-    <script src="{{ asset('assets/js/app.js') }}"></script><a id="topScroll" href="#top" style="position: fixed; z-index: 100; display: none;"><i class="fas fa-long-arrow-alt-up"></i></a>
+    <script src="{{ asset('assets/js/app.js') }}"></script><a id="topScroll" href="#top"
+        style="position: fixed; z-index: 100; display: none;"><i class="fas fa-long-arrow-alt-up"></i></a>
 
     <!--====== Noscript ======-->
     <noscript>
@@ -87,7 +93,8 @@
                         <div class="app-setting__wrap">
                             <h1 class="app-setting__h1">JavaScript is disabled in your browser.</h1>
 
-                            <span class="app-setting__text">Please enable JavaScript in your browser or upgrade to a JavaScript-capable browser.</span>
+                            <span class="app-setting__text">Please enable JavaScript in your browser or upgrade to a
+                                JavaScript-capable browser.</span>
                         </div>
                     </div>
                 </div>
@@ -95,5 +102,51 @@
         </div>
     </noscript>
 
-</body></html>
+</body>
+
+</html>
 @yield('scripts')
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.addEventListener('livewire:load', function () {
+
+        window.livewire.on('addToCartSuccess', ()=>{
+            Swal.fire(
+                'Success Opration!',
+                'The Item Add To Cart Successfuly !',
+                'success'
+                );
+                let Count   = Number($('.total-item-round').text());
+                console.log(Count);
+                let newCount = Count + 1;
+                console.log(newCount);
+                $('.total-item-round').text(newCount);
+        });
+
+        window.livewire.on('addToWishSuccess', ()=>{
+            Swal.fire(
+                'Success Opration!',
+                'The Item Add To Wishlist Successfuly !',
+                'success'
+                );
+        });
+
+        window.livewire.on('ErrorMessage', (Message)=>{
+            Swal.fire(
+                'Opps .. !',
+                Message,
+                'error'
+                );
+        });
+
+        window.livewire.on('RemoveFromCart', (Message)=>{
+            Swal.fire(
+                'Success Opration!',
+                Message,
+                'success'
+                );
+        });
+
+
+})
+</script>

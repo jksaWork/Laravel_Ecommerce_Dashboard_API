@@ -1175,11 +1175,20 @@
                         <ul class="ah-list ah-list--design1 ah-list--link-color-secondary">
                             <li>
                                 <a href="index.html"><i class="fas fa-home"></i></a></li>
-                            <li>
-                                <a href="wishlist.html"><i class="far fa-heart"></i></a></li>
+                            <li class="has-dropdown">
+
+
+                                @if (Cart::instance('wishlist')->count() > 0 )
+                                <a href="{{ route('wishlist') }}"><i class="far fa-heart"></i>
+                                    <span class="total-item-round">{{ Cart::instance('wishlist')->count(); }}</span></a>
+                            @else
+                            <a href="wishlist.html"><i class="far fa-heart"></i></a>
+                            @endif
+                            </li>
+                                {{-- <a href="wishlist.html"><i class="far fa-heart"></i></a></li> --}}
                             <li class="has-dropdown">
                                 @if (Cart::count() > 0 )
-                                    <a class="mini-cart-shop-link"><i class="fas fa-shopping-bag"></i>
+                                    <a class="mini-cart-shop-link" href="/cart"><i class="fas fa-shopping-bag"></i>
                                         <span class="total-item-round">{{ Cart::count(); }}</span></a>
                                 @else
                                 <a class="mini-cart-shop-link"><i class="fas fa-shopping-bag"></i></a>

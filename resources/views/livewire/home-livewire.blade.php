@@ -961,12 +961,10 @@
 
                                                 <a class="fas fa-search" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top" title="" data-original-title="Quick Look"></a></div>
                                             <div class="product-m__add-cart">
-
-                                                <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart" wire:click.prevent='AddToCart()'>Add to Cart</a></div>
+                                                <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart" wire:click.prevent='AddToCart({{ $product }})'>Add to Cart</a></div>
                                         </div>
                                         <div class="product-m__content">
                                             <div class="product-m__category">
-
                                                 <a href="shop-side-version-2.html">{{ $product->Category->name }}</a></div>
                                             <div class="product-m__name">
 

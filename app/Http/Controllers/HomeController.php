@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,5 +25,10 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function welcomeIndex(){
+        $onSaleProduct = Product::where('sale_price' ,'>' , 0)->limit(2)->get();
+        return view('welcome' , compact('onSaleProduct'));
     }
 }

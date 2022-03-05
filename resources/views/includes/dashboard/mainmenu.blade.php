@@ -11,27 +11,31 @@ $permission = Spatie\Permission\Models\Permission::get();
                         data-i18n="nav.changelog.main">{{__('translation.dashboard')}}</span></a>
             </li>
 
-            <li class="nav-item {{ request()->routeIs('categories.index')?'active':'' }}"><a href="{{route('categories.index')}}"><i
-                class="la la-home"></i><span class="menu-title"
-                data-i18n="nav.changelog.main"> categories </span></a>
+            <li class="nav-item {{ request()->routeIs('categories.index')?'active':'' }}"><a
+                    href="{{route('categories.index')}}"><i class="la la-home"></i><span class="menu-title"
+                        data-i18n="nav.changelog.main"> categories </span></a>
             </li>
 
+            <li class="nav-item {{ request()->routeIs('Coupons.index')?'active':'' }}"><a
+                href="{{route('Coupons.index')}}"><i class="la la-key"></i><span class="menu-title"
+                    data-i18n="nav.changelog.main"> Coupons </span></a>
+        </li>
             <li class="nav-item has-sub {{ request()->is('products/*') ? 'open':'' }}"><a href="#"><i
-                class="la la-list-alt"></i><span class="menu-title"
-                data-i18n="nav.templates.main"> Products mangement</span></a>
-        <ul class="menu-content" style="">
-            <li class="is-shown {{request()->routeIs('products.index') ? 'active':'' }}">
-                <a class="menu-item" href="{{route('products.index') }}"
-                    data-i18n="nav.dash.ecommerce"> Show All Products </a>
-            </li>
-            <li class="is-shown {{ request()->routeIs('homeSlider.index')?'active':'' }}"><a
-                    class="menu-item" href="{{ route('homeSlider.index') }}"
-                    data-i18n="nav.dash.crypto"> Home Slider </a>
-            </li>
+                        class="la la-list-alt"></i><span class="menu-title" data-i18n="nav.templates.main"> Products
+                        mangement</span></a>
+                <ul class="menu-content" style="">
+                    <li class="is-shown {{request()->routeIs('products.index') ? 'active':'' }}">
+                        <a class="menu-item" href="{{route('products.index') }}" data-i18n="nav.dash.ecommerce"> Show
+                            All Products </a>
+                    </li>
+                    <li class="is-shown {{ request()->routeIs('homeSlider.index')?'active':'' }}"><a class="menu-item"
+                            href="{{ route('homeSlider.index') }}" data-i18n="nav.dash.crypto"> Home Slider </a>
+                    </li>
 
-        </ul>
-    </li>                </ul>
+                </ul>
             </li>
+        </ul>
+        </li>
 
         </ul>
         <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;">

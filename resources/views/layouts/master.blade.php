@@ -106,7 +106,6 @@
             text-transform: capitalize;
         }
     </style>
-
 </head>
 
 <body style="overflow-x: hidden" class="vertical-layout 2-columns fixed-navbar pace-done vertical-menu menu-expanded"

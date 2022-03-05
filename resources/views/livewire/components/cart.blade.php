@@ -220,10 +220,27 @@
                                                             <td>TAX</td>
                                                             <td>{{ Cart::tax() }}</td>
                                                         </tr>
+                                                        <tr>
 
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <input type="checkbox" />
+                                                                <label for="">copone code</label>
+                                                            </td>
+                                                            <td>
+                                                                <input  class='class="input-text  input-text--style-1' type="text"  wire:model.defer='CouponCode' wire:change='HandelCuopone()' />
+                                                            </td>
+                                                        </tr>
                                                         <tr>
                                                             <td>GRAND TOTAL</td>
-                                                            <td>{{ Cart::total() }}</td>
+                                                            <td>
+                                                                @if($cartTotal)
+                                                                <span class="product-o__discount"> {{ cart::total() }}</span>    {{ number_format($cartTotal , 2) }}
+                                                                @else
+                                                                {{ cart::total() }}
+                                                                @endif
+                                                            </td>
                                                         </tr>
                                                     </tbody>
                                                 </table>

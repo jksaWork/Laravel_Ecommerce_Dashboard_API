@@ -94,6 +94,13 @@
                                                     class="form-control" name="image" id="" aria-describedby="helpId" placeholder="">
                                                 </div>
                                             </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                <label for="">description</label>
+                                                <textarea id="mytextarea" name="mytextarea">
+                                                    Hello, World!
+                                                </textarea>
+                                            </div>
                                             <div class="row m-2">
                                                 <button class="btn btn-primary">save</button>
                                             </div>
@@ -154,6 +161,14 @@
 @endsection
 
 @push('scripts')
+<script src='https://cdn.tiny.cloud/1/3nycdho7e3u1n1php0pt4s6vbvl7kl5j87566r2g5jfihdcj/tinymce/5/tinymce.min.js' referrerpolicy="origin">
+</script>
+<script>
+  tinymce.init({
+    selector: '#mytextarea'
+  });
+</script>
+</head>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     function FireSweetAlert(id){
