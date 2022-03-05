@@ -2,6 +2,7 @@
 set -e
 
 echo "Deployment started ..."
+# KqOCTkj9CJzGrGHAXk6ooFaNpVX8kS+ycX0MTHIlbPs
 # Enter maintenance mode or return true
 # if already is in maintenance mode
 (php artisan down) || true
