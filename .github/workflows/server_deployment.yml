@@ -26,14 +26,3 @@ jobs:
         php-version: 8.0
         extensions: mbstring, ctype, fileinfo, openssl, PDO, bcmath, json, tokenizer, xml
 
-        #This will configure PHP 8.0 (I've started with
-        - name : install Composer
-        - run : composer install --no-dev --nointeraction --prefer-dist ,
-        # uses: appleboy/ssh-action@master
-        # with:
-        #   host: ${{ secrets.HOST }}
-        #   username: ${{ secrets.USERNAME }}
-        #   port: ${{ secrets.PORT }}
-        #   key: ${{ secrets.SSHKEY }}
-        #   script: "cd /var/www/html && ./.scripts/deploy.sh"
-        #jksa altignai osman
