@@ -10,7 +10,7 @@ on:
   pull_request:
     branches:
       - production
-
+#jksa altignai oksmna
 # Authenticate to the the server via ssh
 # and run our deployment script
 jobs:
