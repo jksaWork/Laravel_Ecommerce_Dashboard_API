@@ -22,7 +22,6 @@ jobs:
         run: |
           npm ci
           npm run prod
-
       - name:  Configure PHP 8.0
         uses: shivammathur/setup-php@master
         with :
