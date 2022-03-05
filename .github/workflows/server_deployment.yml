@@ -21,7 +21,7 @@ jobs:
       - name: Complie Css And Java script
         run: |
           npm install
-          npm prod
+          npm run prod
 
         # uses: appleboy/ssh-action@master
         # with:
