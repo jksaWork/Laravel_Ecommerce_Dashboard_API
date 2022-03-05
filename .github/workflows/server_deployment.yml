@@ -18,16 +18,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Complie Css And Java script
+      - name: Compile CSS and Javascript
         run: |
           npm ci
           npm run prod
-      uses: shivammathur/setup-php@master
-      name:  Configure PHP 8.0
-        with :
+      - name: Configure PHP 8.0
+        uses: shivammathur/setup-php@master
+        with:
         php-version: 8.0
         extensions: mbstring, ctype, fileinfo, openssl, PDO, bcmath, json, tokenizer, xml
 
+This will configure PHP 8.0 (I've started with
         - name : install Composer
         - run : composer install --no-dev --nointeraction --prefer-dist ,
         # uses: appleboy/ssh-action@master
