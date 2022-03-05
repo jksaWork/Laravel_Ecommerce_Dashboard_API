@@ -22,15 +22,15 @@ jobs:
         run: |
           npm ci
           npm run prod
-      - name:  Configure PHP 8.0
-        uses: shivammathur/setup-php@master
-        with :
-        php-version: 8.0
-        extensions: mbstring, ctype, fileinfo, openssl, PDO, bcmath, json, tokenizer, xml
+      # name:  Configure PHP 8.0
+      #   uses: shivammathur/setup-php@master
+      #   with :
+      #   php-version: 8.0
+      #   extensions: mbstring, ctype, fileinfo, openssl, PDO, bcmath, json, tokenizer, xml
 
-        - name : install Composer
-        - run : composer install --no-dev --nointeraction --prefer-dist ,
-        # uses: appleboy/ssh-action@master
+      #   - name : install Composer
+      #   - run : composer install --no-dev --nointeraction --prefer-dist ,
+      #   # uses: appleboy/ssh-action@master
         # with:
         #   host: ${{ secrets.HOST }}
         #   username: ${{ secrets.USERNAME }}
