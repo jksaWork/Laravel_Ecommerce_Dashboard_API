@@ -18,5 +18,5 @@ jobs:
           username: 'jksa'
           host: '192.168.8.217'
           password: '000000'
-          timeout: 3000s
+          timeout: 300s
           script: 'cd /var/www/JksaEcommce/ && ./server_deploy.sh'
