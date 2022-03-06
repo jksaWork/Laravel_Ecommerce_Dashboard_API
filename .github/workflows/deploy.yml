@@ -6,6 +6,8 @@ on:
   push:
     branches:
       - production
+      - main
+      - dev
   pull_request:
     branches:
       - production
