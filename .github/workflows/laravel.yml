@@ -15,7 +15,7 @@ jobs:
     - name: Deploy to production
       uses: appleboy/ssh-action@master
       with:
-          username: jksa
-          host: 192.168.8.255
-          password: 0000000
-          script: cd /var/www/JksaEcommce/ && ./server_deploy.sh
+          username: 'jksa'
+          host: '192.168.8.255'
+          password: '0000000'
+          script: 'cd /var/www/JksaEcommce/ && ./server_deploy.sh'
