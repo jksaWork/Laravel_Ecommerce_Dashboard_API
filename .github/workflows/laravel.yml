@@ -1,0 +1,21 @@
+name: Laravel
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  laravel-tests:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Deploy to production
+      uses: appleboy/ssh-action@master
+      with:
+          username: jksa
+          host: 192.168.8.255
+          password: 0000000
+          script: cd /var/www/html/MerqataAPI && ./server_deploy.sh
