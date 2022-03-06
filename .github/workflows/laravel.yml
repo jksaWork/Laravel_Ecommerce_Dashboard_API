@@ -1,22 +1,22 @@
-name: Laravel
+# name: Laravel
 
-on:
-  push:
-    branches: [ master , main , production ]
-  pull_request:
-    branches: [ master  , main , production ]
+# on:
+#   push:
+#     branches: [ master , main , production ]
+#   pull_request:
+#     branches: [ master  , main , production ]
 
-jobs:
-  laravel-tests:
+# jobs:
+#   laravel-tests:
 
-    runs-on: ubuntu-latest
+#     runs-on: ubuntu-latest
 
-    steps:
-    - name: Deploy to production
-      uses: appleboy/ssh-action@master
-      with:
-          username: 'jksa'
-          host: '192.168.8.217'
-          password: '000000'
-          timeout: 300000s
-          script: 'cd /var/www/JksaEcommce/ && ./server_deploy.sh'
+#     steps:
+#     - name: Deploy to production
+#       uses: appleboy/ssh-action@master
+#       with:
+#           username: 'jksa'
+#           host: '192.168.8.217'
+#           password: '000000'
+#           timeout: 3000s
+#           script: 'cd /var/www/JksaEcommce/ && ./server_deploy.sh'
