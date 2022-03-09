@@ -1,67 +1,204 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  min-width: 250px;
+}
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+/* Include the padding and border in an element's total width and height */
+* {
+  box-sizing: border-box;
+}
 
-## About Laravel
+/* Remove margins and padding from the list */
+ul {
+  margin: 0;
+  padding: 0;
+}
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+/* Style the list items */
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  list-style-type: none;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+  
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+/* Set all odd list items to a different color (zebra-stripes) */
+ul li:nth-child(odd) {
+  background: #f9f9f9;
+}
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+/* Darker background-color on hover */
+ul li:hover {
+  background: #ddd;
+}
 
-## Learning Laravel
+/* When clicked on, add a background color and strike out text */
+ul li.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+/* Add a "checked" mark when clicked on */
+ul li.checked::before {
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+/* Style the close button */
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
 
-## Laravel Sponsors
+.close:hover {
+  background-color: #f44336;
+  color: white;
+}
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+/* Style the header */
+.header {
+  background-color: #f44336;
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+}
 
-### Premium Partners
+/* Clear floats after the header */
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-- **[Romega Software](https://romegasoftware.com)**
+/* Style the input */
+input {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
 
-## Contributing
-jksa
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+/* Style the "Add" button */
+.addBtn {
+  padding: 10px;
+  width: 25%;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
 
-## Code of Conduct
+.addBtn:hover {
+  background-color: #bbb;
+}
+</style>
+</head>
+<body>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+<div id="myDIV" class="header">
+  <h2 style="margin:5px">My To Do List</h2>
+  <input type="text" id="myInput" placeholder="Title...">
+  <span onclick="newElement()" class="addBtn">Add</span>
+</div>
 
-## Security Vulnerabilities
+<ul id="myUL">
+  <li>Hit the gym</li>
+  <li class="checked">Pay bills</li>
+  <li>Meet George</li>
+  <li>Buy eggs</li>
+  <li>Read a book</li>
+  <li>Organize office</li>
+</ul>
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+<script>
+// Create a "close" button and append it to each list item
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
 
-## License
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# JksaEcommce
+// Add a "checked" symbol when clicking on a list item
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+</script>
+
+</body>
+</html>

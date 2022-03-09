@@ -1,10 +1,10 @@
 set -e
 
-echo "Deploying application ..."
+echo "Deploying Application ..."
 
 set -e
 
-echo "Deploying application ..."
+echo "Deploying Application ..."
 
 # Enter maintenance mode
 (php artisan down) || true
