@@ -1187,9 +1187,9 @@
                             </li>
                                 {{-- <a href="wishlist.html"><i class="far fa-heart"></i></a></li> --}}
                             <li class="has-dropdown">
-                                @if (Cart::count() > 0 )
+                                @if (Cart::instance('cart')->count() > 0 )
                                     <a class="mini-cart-shop-link" href="/cart"><i class="fas fa-shopping-bag"></i>
-                                        <span class="total-item-round">{{ Cart::count(); }}</span></a>
+                                        <span class="total-item-round">{{ Cart::instance('cart')->count(); }}</span></a>
                                 @else
                                 <a class="mini-cart-shop-link"><i class="fas fa-shopping-bag"></i></a>
                                 @endif

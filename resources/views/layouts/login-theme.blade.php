@@ -37,15 +37,9 @@
     <div id="app">
         <!--====== Main Header ======-->
         <x:notify-messages />
-        @include('layouts.includes.header')
-
-        <!--====== Section 1 ======-->
-
-        {{-- @yield('content') --}}
         {{ $slot ?? ' -- '}}
         @yield('content')
 
-        @include('layouts.includes.footer')
         <!--====== End - Main Header ======-->
 
 
@@ -146,18 +140,6 @@
                 'success'
                 );
         });
-        window.livewire.on('chekOutDoneSuccessfuly',
-    function(){
-        Swal.fire(
-                'Success Opration!',
-                'Check Out Done Successfuly ',
-                'success'
-                );
-    setTimeout(() => {
-        window.location = '/';
-    }, 2000);
-
-    } )
 
 
 })

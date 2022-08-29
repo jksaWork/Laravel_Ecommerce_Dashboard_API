@@ -53,16 +53,14 @@
                                 <div class="w-r__info">
 
                                     <span class="w-r__name">
-
-                                        <a href="product-detail.html">Yellow Wireless Headphone</a></span>
-
+                                        {{-- @dd($item) --}}
+                                        <a href="product-detail.html">{{ $item->name}}</a></span>
                                     <span class="w-r__category">
-
                                         <a href="shop-side-version-2.html">Electronics</a></span>
-
-                                    <span class="w-r__price">$125.00
-
-                                        <span class="w-r__discount">$160.00</span></span></div>
+                                    <span class="w-r__price">{{ $item->price . '$' }}
+                                        {{-- <span class="w-r__discount">$160.00</span></span></div> --}}
+                                    </span>
+                            </div>
                             </div>
                             <div class="w-r__wrap-2">
 

@@ -15,11 +15,17 @@ $permission = Spatie\Permission\Models\Permission::get();
                     href="{{route('categories.index')}}"><i class="la la-home"></i><span class="menu-title"
                         data-i18n="nav.changelog.main"> categories </span></a>
             </li>
+            <li class="nav-item {{ request()->routeIs('orders')?'active':'' }}"><a
+                href="{{route('orders')}}"><i class="la la-home"></i><span class="menu-title"
+                    data-i18n="nav.changelog.main"> Orders </span></a>
+        </li>
 
             <li class="nav-item {{ request()->routeIs('Coupons.index')?'active':'' }}"><a
                 href="{{route('Coupons.index')}}"><i class="la la-key"></i><span class="menu-title"
                     data-i18n="nav.changelog.main"> Coupons </span></a>
         </li>
+
+
             <li class="nav-item has-sub {{ request()->is('products/*') ? 'open':'' }}"><a href="#"><i
                         class="la la-list-alt"></i><span class="menu-title" data-i18n="nav.templates.main"> Products
                         mangement</span></a>
@@ -38,6 +44,7 @@ $permission = Spatie\Permission\Models\Permission::get();
         </li>
 
         </ul>
+
         <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;">
             <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
         </div>

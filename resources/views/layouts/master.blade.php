@@ -116,6 +116,7 @@
     @include('includes.dashboard.mainmenu')
 
     <div class="app-content content">
+        {{ $slot ?? '' }}
         @yield('content')
     </div>
     <!-- ////////////////////////////////////////////////////////////////////////////-->

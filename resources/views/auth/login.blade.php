@@ -1,4 +1,4 @@
-@extends('layouts.theme')
+@extends('layouts.login-theme')
     <div class="app-content">
         <!--====== Section 1 ======-->
         <div class="u-s-p-y-60">
@@ -59,10 +59,10 @@
                                             AN ACCOUNT</a>
                                     </div>
                                     <h1 class="gl-h1">SIGNIN</h1>
-
                                     <span class="gl-text u-s-m-b-30">If you have an account with us, please log in.</span>
                                     <form class="l-f-o__form" method="post" action="{{ route('customer.login') }}">
                                         @csrf
+                                        {{-- @dd(route('customer.login')) --}}
                                         <div class="gl-s-api">
                                             <div class="u-s-m-b-15">
                                                 <button class="gl-s-api__btn gl-s-api__btn--fb" type="button"><i
@@ -82,7 +82,7 @@
                                             <label class="gl-label" for="login-email">E-MAIL *</label>
 
                                             <input class="input-text input-text--primary-style" type="text" id="login-email"
-                                                placeholder="Enter E-mail" name='email'>
+                                                placeholder="Enter E-mail" name='email' value="{{ old('email') }}">
                                             @error('email')
                                                 <small>{{ $message }}</small>
                                             @enderror
@@ -90,7 +90,7 @@
                                         <div class="u-s-m-b-30">
                                             <label class="gl-label" for="login-password">PASSWORD *</label>
                                             <input class="input-text input-text--primary-style" type="text"
-                                                id="login-password" placeholder="Enter Password" name='password'>
+                                                id="login-password" placeholder="Enter Password" name='password' value="{{ old('password') }}">
                                             @error('password')
                                                 <small>{{ $message }}</small>
                                             @enderror

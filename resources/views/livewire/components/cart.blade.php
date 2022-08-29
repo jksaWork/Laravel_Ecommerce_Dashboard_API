@@ -52,18 +52,20 @@
                             <div class="table-responsive">
                                 <table class="table-p">
                                     <tbody>
-                                        @foreach ( Cart::content() as $Product )
+                                        @foreach ( Cart::instance('cart')->content() as $Product )
                                         <tr>
                                             {{-- @dd($Product); --}}
                                             <td>
                                                 <div class="table-p__box">
                                                     <div class="table-p__img-wrap">
-                                                        <img class="u-img-fluid"
-                                                            src="{{ $Product->model->image }}" alt="">
+                                                        <img class="u-img-fluid" src="{{ $Product->model->image }}"
+                                                            alt="">
                                                     </div>
                                                     <div class="table-p__info">
                                                         <span class="table-p__name">
-                                                            <a href="{{ route('show.product' , ['slug' => $Product->model->slug ]) }}">{{ $Product->name }}</a></span>
+                                                            <a
+                                                                href="{{ route('show.product' , ['slug' => $Product->model->slug ]) }}">{{
+                                                                $Product->name }}</a></span>
                                                         <span class="table-p__category">
                                                             <a href="shop-side-version-2.html">Electronics</a></span>
                                                         <ul class="table-p__variant-list">
@@ -84,18 +86,22 @@
                                                 <div class="table-p__input-counter-wrap">
                                                     <!--====== Input Counter ======-->
                                                     <div class="input-counter">
-                                                        <span class="input-counter__minus fas fa-minus" wire:click='DecreaseQuantity("{{ $Product->rowId }}")'></span>
+                                                        <span class="input-counter__minus fas fa-minus"
+                                                            wire:click='DecreaseQuantity("{{ $Product->rowId }}")'></span>
                                                         <input
                                                             class="input-counter__text input-counter--text-primary-style"
-                                                            type="text" value="{{ $Product->qty }}" data-min="1" data-max="1000">
-                                                        <span class="input-counter__plus fas fa-plus" wire:click='increaseQuantity("{{ $Product->rowId }}")'></span>
+                                                            type="text" value="{{ $Product->qty }}" data-min="1"
+                                                            data-max="1000">
+                                                        <span class="input-counter__plus fas fa-plus"
+                                                            wire:click='increaseQuantity("{{ $Product->rowId }}")'></span>
                                                     </div>
                                                     <!--====== End - Input Counter ======-->
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="table-p__del-wrap">
-                                                    <a class="far fa-trash-alt table-p__delete-link" href="#" wire:click.prevent='removeProduct("{{ $Product->rowId }}")''></a>
+                                                    <a class="far fa-trash-alt table-p__delete-link" href="#"
+                                                        wire:click.prevent='removeProduct("{{ $Product->rowId }}")''></a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -109,20 +115,23 @@
                                 <div class="route-box__g1">
 
                                     <a class="route-box__link" href="{{ route('products') }}"><i
-                                            class="fas fa-long-arrow-alt-left"></i>
+                                                            class="fas fa-long-arrow-alt-left"></i>
 
-                                        <span>CONTINUE SHOPPING</span></a>
-                                </div>
-                                <div class="route-box__g2">
+                                                        <span>CONTINUE SHOPPING</span></a>
+                                                </div>
+                                                <div class="route-box__g2">
 
-                                    <a class="route-box__link" href="cart.html" wire:click.prevent='removeAllProduct()'><i class="fas fa-trash"></i>
+                                                    <a class="route-box__link" href="cart.html"
+                                                        wire:click.prevent='removeAllProduct()'><i
+                                                            class="fas fa-trash"></i>
 
-                                        <span>CLEAR CART</span></a>
+                                                        <span>CLEAR CART</span></a>
 
-                                    <a class="route-box__link" href="cart.html"><i class="fas fa-sync"></i>
+                                                    <a class="route-box__link" href="cart.html"><i
+                                                            class="fas fa-sync"></i>
 
-                                        <span>UPDATE CART</span></a>
-                                </div>
+                                                        <span>UPDATE CART</span></a>
+                                                </div>
                             </div>
                         </div>
                     </div>
@@ -146,13 +155,10 @@
                                     <div class="col-lg-4 col-md-6 u-s-m-b-30">
                                         <div class="f-cart__pad-box">
                                             <h1 class="gl-h1">ESTIMATE SHIPPING AND TAXES</h1>
-
                                             <span class="gl-text u-s-m-b-30">Enter your destination to get a shipping
                                                 estimate.</span>
                                             <div class="u-s-m-b-30">
-
                                                 <!--====== Select Box ======-->
-
                                                 <label class="gl-label" for="shipping-country">COUNTRY *</label><select
                                                     class="select-box select-box--primary-style" id="shipping-country">
                                                     <option selected="" value="">Choose Country</option>
@@ -163,9 +169,7 @@
                                                 <!--====== End - Select Box ======-->
                                             </div>
                                             <div class="u-s-m-b-30">
-
                                                 <!--====== Select Box ======-->
-
                                                 <label class="gl-label" for="shipping-state">STATE/PROVINCE
                                                     *</label><select class="select-box select-box--primary-style"
                                                     id="shipping-state">
@@ -196,11 +200,9 @@
                                     </div>
                                     <div class="col-lg-4 col-md-6 u-s-m-b-30">
                                         <div class="f-cart__pad-box">
-                                            <h1 class="gl-h1">NOTE</h1>
-
+                                            <h1 class="gl-h1">NOTE</h1>tax
                                             <span class="gl-text u-s-m-b-30">Add Special Note About Your Product</span>
                                             <div>
-
                                                 <label for="f-cart-note"></label><textarea
                                                     class="text-area text-area--primary-style"
                                                     id="f-cart-note"></textarea>
@@ -214,31 +216,25 @@
                                                     <tbody>
                                                         <tr>
                                                             <td>SUBTOTAL</td>
-                                                            <td>{{ Cart::subtotal() }}</td>
+                                                            <td>{{ Cart::instance('cart')->subtotal() }}</td>
                                                         </tr>
                                                         <tr>
                                                             <td>TAX</td>
-                                                            <td>{{ Cart::tax() }}</td>
+                                                            <td>{{ Cart::instance('cart')->tax() }}</td>
                                                         </tr>
                                                         <tr>
 
                                                         </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <input type="checkbox" />
-                                                                <label for="">copone code</label>
-                                                            </td>
-                                                            <td>
-                                                                <input  class='class="input-text  input-text--style-1' type="text"  wire:model.defer='CouponCode' wire:change='HandelCuopone()' />
-                                                            </td>
-                                                        </tr>
+
                                                         <tr>
                                                             <td>GRAND TOTAL</td>
                                                             <td>
                                                                 @if($cartTotal)
-                                                                <span class="product-o__discount"> {{ cart::total() }}</span>    {{ number_format($cartTotal , 2) }}
+                                                                <span class="product-o__discount"> {{
+                                                                    cart::instance('cart')->total() }}</span> {{
+                                                                number_format($cartTotal , 2) }}
                                                                 @else
-                                                                {{ cart::total() }}
+                                                                {{Cart::instance('cart')->total() }}
                                                                 @endif
                                                             </td>
                                                         </tr>
@@ -247,8 +243,9 @@
                                             </div>
                                             <div>
 
-                                                <button class="btn btn--e-brand-b-2" type="submit"> PROCEED TO
-                                                    CHECKOUT</button>
+                                                <a href='/' class="btn btn--e-brand-b-2"
+                                                    wire:click.prevent='toCheckOut'>
+                                                    CHECKOUT</a>
                                             </div>
                                         </div>
                                     </div>
@@ -277,7 +274,8 @@
 
                                 <span class="empty__text-1">No items found on your cart.</span>
 
-                                <a class="empty__redirect-link btn--e-brand" href="shop-side-version-2.html">CONTINUE SHOPPING</a></div>
+                                <a class="empty__redirect-link btn--e-brand" href="/">CONTINUE SHOPPING</a>
+                            </div>
                         </div>
                     </div>
                 </div>

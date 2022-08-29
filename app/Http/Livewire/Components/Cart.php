@@ -13,13 +13,53 @@ use Gloudemans\Shoppingcart\CartItem;
 class Cart extends Component
 {
     public $CouponCode;
-    public $cartTotal;
+    public $cartTotal ,  $discount , $subtotalAfterDisscount, $totalAfterDisCount;
+
+    // 'sub_total' => $this->,
 
     use CartTrats;
 
+    public function mount()
+    {
+        $this->cartTotal = FacadesCart::instance('cart')->total();
+    }
+    public function toCheckOut()
+    {
+        if (auth()->guard('customers')->check()) {
+            return \redirect()->route('checkout');
+        } else {
+            return redirect()->route('login');
+        }
+    }
+
+
+    public function setCheckOut()
+    {
+        if (session()->has('coupon')) {
+            session()->put(
+                'check_out',
+                [
+                    'discount' => $this->discount,
+                    'total' => $this->totalAfterDisCount,
+                    'tax' => $this->taxAfterDsscount,
+                    'sub_total' => $this->subtotalAfterDisscount,
+                ]
+            );
+        }else{
+            session()->put(
+                'check_out',
+                [
+                    'discount' => 0,
+                    'total' => FacadesCart::instance('cart')->total(),
+                    'tax' => FacadesCart::instance('cart')->tax(),
+                    'sub_total' => FacadesCart::instance('cart')->subtotal()
+                ]
+            );
+        }
+    }
+
     public function HandelCuopone()
     {
-        // dd($this->CouponCode);
         try {
             $CouponCode = $this->CouponCode;
             $Coupon =  Coupons::where('coupon', $CouponCode)->where('cart_value', '<=', FacadesCart::total())->first();
@@ -27,7 +67,7 @@ class Cart extends Component
                 // dd('nont');
                 $this->emit('ErrorMessage', 'Your Copone Code Is InValid');
                 // dd('emited succesffuly');
-                $this->cartTotal  = FacadesCart::total();
+                $this->cartTotal  = FacadesCart::instance('cart')->total();
             } else {
                 // dd('good');
                 session()->put('coupon', [
@@ -37,12 +77,16 @@ class Cart extends Component
                     'type' => $Coupon->type,
                 ]);
 
-                if(!$Coupon->type = 'fixed'){
-                    $discount = (FacadesCart::total() * $Coupon->value) / 100 ;
-                 }else{
-                     $discount = FacadesCart::total()  -  $Coupon->value;
-                 }
-                $this->cartTotal = FacadesCart::total() - $discount;
+                if (!$Coupon->type = 'fixed') {
+                    $this->discount = (FacadesCart::instance('cart')->total() * $Coupon->value) / 100;
+                } else {
+                    $this->discount = FacadesCart::instance('cart')->total()  -  $Coupon->value;
+                }
+                $this->cartTotal = FacadesCart::instance('cart')->total() - $this->discount;
+                $this->subtotalAfterDisscount = FacadesCart::instance('cart')->total() - $this->discount;
+                $this->tax = FacadesCart::instance('cart')->total() - $this->discount;
+                $this->taxAfterDsscount = FacadesCart::instance('cart')->tax() * .7;
+                $this->totalAfterDisCount = $this->subtotalAfterDisscount + $this->taxAfterDsscount ;
                 // dd(session());
             }
         } catch (Exception $e) {
@@ -52,6 +96,7 @@ class Cart extends Component
 
     public function render()
     {
+        $this->setCheckOut();
         return view('livewire.components.cart')
             ->layout('layouts.theme');
     }

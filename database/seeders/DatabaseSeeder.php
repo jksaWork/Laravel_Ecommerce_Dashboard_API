@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use App\Models\Customer;
 use App\Models\HomeSlider;
 use App\Models\OfferSaleDate;
 use App\Models\Product;
@@ -17,7 +18,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        \App\Models\Customer::factory(1)->create();
+        Customer::create([
+            'name' => 'hello',
+            'email' => 'jksa@gmail.com',
+            'phone' => '0915477450',
+            'photo' => 'logo.svg',
+            'password'=> bcrypt('123456'),
+        ]);
         $this->call(OrganizationProfileSeeder::class);
         Category::factory(5)->create();
         Product::factory(22)->create();

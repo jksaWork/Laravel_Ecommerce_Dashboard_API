@@ -9,6 +9,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CouponsController;
 use App\Http\Controllers\HomeSliderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Livewire\AdminOrdersLivewire;
+use App\Http\Livewire\OrderDetails;
 use App\Models\HomeSlider;
 // use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Route ;
@@ -21,3 +23,6 @@ Route::resource('products', ProductController::class ); # all Product Route ----
 Route::resource('homeSlider' , HomeSliderController::class);# all Home Slider Controller ---------------
 
 Route::resource('Coupons', CouponsController::class);
+
+Route::get('orders' , AdminOrdersLivewire::class)->name('orders');
+Route::get('order-details/{id}' , OrderDetails::class)->name('order.details');

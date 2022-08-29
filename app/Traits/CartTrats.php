@@ -10,40 +10,38 @@ trait CartTrats
 
     public function increaseQuantity($CartId)
     {
-        // dd($CartId);
-        $Cart = FacadesCart::get($CartId);
-        // dd($Cart);
+        $Cart = FacadesCart::instance('cart')->get($CartId);
         $qty = $Cart->qty + 1;
-        FacadesCart::update($CartId, $qty);
+        FacadesCart::instance('cart')->update($CartId, $qty);
         $this->render();
     }
 
     public function DecreaseQuantity($CartId)
     {
-        $Cart = FacadesCart::get($CartId);
+        $Cart = FacadesCart::instance('cart')->get($CartId);
         $qty = $Cart->qty - 1;
-        FacadesCart::update($CartId, $qty);
+        FacadesCart::instance('cart')->update($CartId, $qty);
     }
 
 
     public function removeProduct($rowId)
     {
-        FacadesCart::remove($rowId);
+        FacadesCart::instance('cart')->remove($rowId);
     }
 
     public function removeAllProduct()
     {
-        FacadesCart::destroy();
+        FacadesCart::instance('cart')->destroy();
     }
 
     public function AddToCart($Product)
     {
         // dd($Product);
 
-        FacadesCart::add($Product['id'], $Product['name'], 1,  $Product['regular_price'])->associate('App\Models\Product');
+        FacadesCart::instance('cart')->add($Product['id'], $Product['name'], 1,  $Product['regular_price'])->associate('App\Models\Product');
         // notify('whats do you mean about borsers' , 'done Successful');
         $this->emit('addToCartSuccess');
-        // notify('add to card successfuly');
+        // notify('add to cart successfuly');
 
     }
 
@@ -55,7 +53,7 @@ trait CartTrats
         FacadesCart::instance('wishlist')->add($Product['id'], $Product['name'], 1,  $Product['regular_price'])->associate('App\Models\Product');
         // notify('whats do you mean about borsers' , 'done Successful');
         $this->emit('addToWishSuccess');
-        // notify('add to card successfuly');
+        // notify('add to cart successfuly');
 
     }
 

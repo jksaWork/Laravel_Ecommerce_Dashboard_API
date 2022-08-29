@@ -15,7 +15,10 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->froginId('product_id');
+            // $table->foreignId('product_id')->references('id')->on('products') ;
+            $table->foreignId('order_id')->references('id')->on('orders') ;
+            $table->enum('mode', ['pay_pal','cod']);
+            $table->enum('status', ['pending' , 'approved', 'declined' , 'refunded'])->default('pending');
             $table->timestamps();
         });
     }
