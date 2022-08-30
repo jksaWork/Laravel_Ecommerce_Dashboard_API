@@ -150,40 +150,28 @@
 
                             <span class="pd-detail__review u-s-m-l-4">
 
-                                <a data-click-scroll="#view-review">23 Reviews</a></span>
+                                <a data-click-scroll="#view-review">{{ $Product->Reviews->count() }} Reviews</a></span>
                         </div>
                     </div>
                     <div class="u-s-m-b-15">
                         <div class="pd-detail__inline">
-
                             <span class="pd-detail__stock">{{ $Product->quantity }} in stock</span>
-
-                            <span class="pd-detail__left">Only 2 left</span>
+                            {{-- <span class="pd-detail__left">Only 2 left</span> --}}
                         </div>
                     </div>
                     <div class="u-s-m-b-15">
-
                         <span class="pd-detail__preview-desc">{{ $Product->description }}</span>
                     </div>
                     <div class="u-s-m-b-15">
                         <div class="pd-detail__inline">
-
                             <span class="pd-detail__click-wrap"><i class="far fa-heart u-s-m-r-6"></i>
-
-                                <a href="signin.html">Add to Wishlist</a>
+                                <a href="#" wire:click='AddToWithList({{ $Product }})'>Add to Wishlist</a>
 
                                 <span class="pd-detail__click-count">(222)</span></span>
                         </div>
                     </div>
                     <div class="u-s-m-b-15">
-                        <div class="pd-detail__inline">
 
-                            <span class="pd-detail__click-wrap"><i class="far fa-envelope u-s-m-r-6"></i>
-
-                                <a href="signin.html">Email me When the price drops</a>
-
-                                <span class="pd-detail__click-count">(20)</span></span>
-                        </div>
                     </div>
                     <div class="u-s-m-b-15">
                         <ul class="pd-social-list">
@@ -217,7 +205,7 @@
                                     <div class="input-counter">
                                         <span class="input-counter__minus fas fa-minus"></span>
                                         <input class="input-counter__text input-counter--text-primary-style" type="text" wire:model='quantity'
-                                             data-min="1" data-max="1000">
+                                            data-min="1" data-max="1000">
                                         <span class="input-counter__plus fas fa-plus"></span>
                                     </div>
                                     <!--====== End - Input Counter ======-->
@@ -255,136 +243,48 @@
                     <div class="u-s-m-b-30">
                         <ul class="nav pd-tab__list">
                             <li class="nav-item">
-
-                                <a class="nav-link active show" data-toggle="tab" href="#pd-desc">DESCRIPTION</a>
+                                <a class="nav-link  show" data-toggle="tab" href="#pd-desc">DESCRIPTION</a>
                             </li>
                             <li class="nav-item">
-
-                                <a class="nav-link show" data-toggle="tab" href="#pd-tag">TAGS</a>
-                            </li>
-                            <li class="nav-item">
-
-                                <a class="nav-link show" id="view-review" data-toggle="tab" href="#pd-rev">REVIEWS
-
-                                    <span>(23)</span></a>
+                                <a class="nav-link active show" id="view-review" data-toggle="tab" href="#pd-rev">REVIEWS
+                                    <span>({{$Product->Reviews->count()}})</span></a>
                             </li>
                         </ul>
                     </div>
                     <div class="tab-content">
 
                         <!--====== Tab 1 ======-->
-                        <div class="tab-pane fade active show" id="pd-desc">
+                        <div class="tab-pane fade  show" id="pd-desc">
                             <div class="pd-tab__desc">
                                 <div class="u-s-m-b-15">
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                        Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                        unknown printer took a galley of type and scrambled it to make a type specimen
-                                        book. It has survived not only five centuries, but also the leap into electronic
-                                        typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                                        with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                                        recently with desktop publishing software like Aldus PageMaker including
-                                        versions of Lorem Ipsum.</p>
+                                    <p>{{ $Product->description }}</p>
                                 </div>
                                 <div class="u-s-m-b-30">
-                                    <div class="fluid-width-video-wrapper" style="padding-top: 50%;"><iframe
-                                            src="https://www.youtube.com/embed/qKqSBm07KZk" allowfullscreen=""
-                                            name="fitvid0"></iframe></div>
-                                </div>
-                                <div class="u-s-m-b-30">
-                                    <ul>
-                                        <li><i class="fas fa-check u-s-m-r-8"></i>
-
-                                            <span>Buyer Protection.</span>
-                                        </li>
-                                        <li><i class="fas fa-check u-s-m-r-8"></i>
-
-                                            <span>Full Refund if you don't receive your order.</span>
-                                        </li>
-                                        <li><i class="fas fa-check u-s-m-r-8"></i>
-
-                                            <span>Returns accepted if product not as described.</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="u-s-m-b-15">
-                                    <h4>PRODUCT INFORMATION</h4>
-                                </div>
-                                <div class="u-s-m-b-15">
-                                    <div class="pd-table gl-scroll">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Main Material</td>
-                                                    <td>Cotton</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Color</td>
-                                                    <td>Green, Blue, Red</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sleeves</td>
-                                                    <td>Long Sleeve</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Top Fit</td>
-                                                    <td>Regular</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Print</td>
-                                                    <td>Not Printed</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Neck</td>
-                                                    <td>Round Neck</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Pieces Count</td>
-                                                    <td>1 Piece</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Occasion</td>
-                                                    <td>Casual</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Shipping Weight (kg)</td>
-                                                    <td>0.5</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!--====== End - Tab 1 ======-->
-
-
                         <!--====== Tab 2 ======-->
-                        <div class="tab-pane show" id="pd-tag">
-                            <div class="pd-tab__tag">
-                                <h2 class="u-s-m-b-15">ADD YOUR TAGS</h2>
-                                <div class="u-s-m-b-15">
-                                    <form>
-
-                                        <input class="input-text input-text--primary-style" type="text">
-
-                                        <button class="btn btn--e-brand-b-2" type="submit">ADD TAGS</button>
-                                    </form>
-                                </div>
-
-                                <span class="gl-text">Use spaces to separate tags. Use single quotes (') for
-                                    phrases.</span>
-                            </div>
-                        </div>
                         <!--====== End - Tab 2 ======-->
-
-
                         <!--====== Tab 3 ======-->
-                        <div class="tab-pane show" id="pd-rev">
+                        <div class="tab-pane show active" id="pd-rev">
                             <div class="pd-tab__rev">
                                 <div class="u-s-m-b-30">
                                     <div class="pd-tab__rev-score">
                                         <div class="u-s-m-b-8">
-                                            <h2>23 Reviews - 4.6 (Overall)</h2>
+                                            <h2>{{ $Product->Reviews->count() }} Reviews -
+                                                @php
+                                                    $rating = 0;
+                                                    foreach($Product->Reviews as $rev){
+                                                        $rating+= $rev->review;
+                                                    }
+                                                    try {
+                                                        echo floor($rating / $Product->Reviews->count() );
+                                                    } catch (\Throwable $th) {
+                                                        echo 0;
+                                                    }
+                                                @endphp
+
+                                                (Overall)</h2>
                                         </div>
                                         <div class="gl-rating-style-2 u-s-m-b-8"><i class="fas fa-star"></i><i
                                                 class="fas fa-star"></i><i class="fas fa-star"></i><i
@@ -412,73 +312,32 @@
                                             </div>
                                         </div>
                                         <div class="rev-f1__review">
+                                            @foreach ($Product->Reviews as $review)
+
+
                                             <div class="review-o u-s-m-b-15">
                                                 <div class="review-o__info u-s-m-b-8">
-
-                                                    <span class="review-o__name">John Doe</span>
-
-                                                    <span class="review-o__date">27 Feb 2018 10:57:43</span>
+                                                    <span class="review-o__name">{{ $review->customer_name }}</span>
+                                                    <span class="review-o__date">{{ $review->created_at->format('Y-M-D H:I:S') }}</span>
                                                 </div>
-                                                <div class="review-o__rating gl-rating-style u-s-m-b-8"><i
-                                                        class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                                        class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                                        class="far fa-star"></i>
-
-                                                    <span>(4)</span>
+                                                <div class="review-o__rating gl-rating-style u-s-m-b-8">
+                                                    @for ($i = 0 ; $i < floor($review->review );  $i++)
+                                                    <i
+                                                    class="fas fa-star"></i>
+                                                    @endfor
+                                                    <span>({{ $review->review }})</span>
                                                 </div>
-                                                <p class="review-o__text">Lorem Ipsum is simply dummy text of the
-                                                    printing and typesetting industry. Lorem Ipsum has been the
-                                                    industry's standard dummy text ever since the 1500s, when an unknown
-                                                    printer took a galley of type and scrambled it to make a type
-                                                    specimen book.</p>
+                                                <p class="review-o__text">{{ $review->commint }}.</p>
                                             </div>
-                                            <div class="review-o u-s-m-b-15">
-                                                <div class="review-o__info u-s-m-b-8">
-
-                                                    <span class="review-o__name">John Doe</span>
-
-                                                    <span class="review-o__date">27 Feb 2018 10:57:43</span>
-                                                </div>
-                                                <div class="review-o__rating gl-rating-style u-s-m-b-8"><i
-                                                        class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                                        class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                                        class="far fa-star"></i>
-
-                                                    <span>(4)</span>
-                                                </div>
-                                                <p class="review-o__text">Lorem Ipsum is simply dummy text of the
-                                                    printing and typesetting industry. Lorem Ipsum has been the
-                                                    industry's standard dummy text ever since the 1500s, when an unknown
-                                                    printer took a galley of type and scrambled it to make a type
-                                                    specimen book.</p>
-                                            </div>
-                                            <div class="review-o u-s-m-b-15">
-                                                <div class="review-o__info u-s-m-b-8">
-
-                                                    <span class="review-o__name">John Doe</span>
-
-                                                    <span class="review-o__date">27 Feb 2018 10:57:43</span>
-                                                </div>
-                                                <div class="review-o__rating gl-rating-style u-s-m-b-8"><i
-                                                        class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                                        class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                                        class="far fa-star"></i>
-
-                                                    <span>(4)</span>
-                                                </div>
-                                                <p class="review-o__text">Lorem Ipsum is simply dummy text of the
-                                                    printing and typesetting industry. Lorem Ipsum has been the
-                                                    industry's standard dummy text ever since the 1500s, when an unknown
-                                                    printer took a galley of type and scrambled it to make a type
-                                                    specimen book.</p>
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </form>
+                                    {{-- @endif --}}
                                 </div>
                                 <div class="u-s-m-b-30">
                                     <form class="pd-tab__rev-f2">
-                                        <h2 class="u-s-m-b-15">Add a Review</h2>
-
+                                        <h2 class="u-s-m-b-15">Add a Review </h2>
+                                        @if(!session()->has('review_id_' . $Product->id))
                                         <span class="gl-text u-s-m-b-15">Your email address will not be published.
                                             Required fields are marked *</span>
                                         <div class="u-s-m-b-30">
@@ -489,7 +348,6 @@
                                                             <th>
                                                                 <div class="gl-rating-style-2"><i
                                                                         class="fas fa-star"></i>
-
                                                                     <span>(1)</span>
                                                                 </div>
                                                             </th>
@@ -565,7 +423,6 @@
                                                                         class="fas fa-star"></i><i
                                                                         class="fas fa-star"></i><i
                                                                         class="fas fa-star"></i>
-
                                                                     <span>(5)</span>
                                                                 </div>
                                                             </th>
@@ -574,14 +431,11 @@
                                                     <tbody>
                                                         <tr>
                                                             <td>
-
                                                                 <!--====== Radio Box ======-->
                                                                 <div class="radio-box">
-
-                                                                    <input type="radio" id="star-1" name="rating">
+                                                                    <input type="radio"  wire:model.defer='rating_stars'  value='1' id="star-1" name="rating">
                                                                     <div
                                                                         class="radio-box__state radio-box__state--primary">
-
                                                                         <label class="radio-box__label"
                                                                             for="star-1"></label>
                                                                     </div>
@@ -589,14 +443,11 @@
                                                                 <!--====== End - Radio Box ======-->
                                                             </td>
                                                             <td>
-
                                                                 <!--====== Radio Box ======-->
                                                                 <div class="radio-box">
-
-                                                                    <input type="radio" id="star-1.5" name="rating">
+                                                                    <input type="radio"  wire:model.defer='rating_stars'  value='1.5'  id="star-1.5" name="rating">
                                                                     <div
                                                                         class="radio-box__state radio-box__state--primary">
-
                                                                         <label class="radio-box__label"
                                                                             for="star-1.5"></label>
                                                                     </div>
@@ -604,11 +455,11 @@
                                                                 <!--====== End - Radio Box ======-->
                                                             </td>
                                                             <td>
-
                                                                 <!--====== Radio Box ======-->
                                                                 <div class="radio-box">
-
-                                                                    <input type="radio" id="star-2" name="rating">
+                                                                    <input type="radio"
+                                                                    wire:model.defer='rating_stars'  value='2'
+                                                                    id="star-2" name="rating">
                                                                     <div
                                                                         class="radio-box__state radio-box__state--primary">
 
@@ -623,7 +474,9 @@
                                                                 <!--====== Radio Box ======-->
                                                                 <div class="radio-box">
 
-                                                                    <input type="radio" id="star-2.5" name="rating">
+                                                                    <input type="radio" id="star-2.5"
+                                                                    wire:model.defer='rating_stars'  value='2.5'
+                                                                    name="rating">
                                                                     <div
                                                                         class="radio-box__state radio-box__state--primary">
 
@@ -638,11 +491,14 @@
                                                                 <!--====== Radio Box ======-->
                                                                 <div class="radio-box">
 
-                                                                    <input type="radio" id="star-3" name="rating">
+                                                                    <input type="radio"
+                                                                    wire:model.defer='rating_stars'  value='3'
+                                                                    id="star-3" name="rating">
                                                                     <div
                                                                         class="radio-box__state radio-box__state--primary">
 
                                                                         <label class="radio-box__label"
+
                                                                             for="star-3"></label>
                                                                     </div>
                                                                 </div>
@@ -653,7 +509,9 @@
                                                                 <!--====== Radio Box ======-->
                                                                 <div class="radio-box">
 
-                                                                    <input type="radio" id="star-3.5" name="rating">
+                                                                    <input type="radio"
+                                                                    wire:model.defer='rating_stars'  value='3.5'
+                                                                    id="star-3.5" name="rating">
                                                                     <div
                                                                         class="radio-box__state radio-box__state--primary">
 
@@ -668,7 +526,9 @@
                                                                 <!--====== Radio Box ======-->
                                                                 <div class="radio-box">
 
-                                                                    <input type="radio" id="star-4" name="rating">
+                                                                    <input type="radio"
+                                                                    wire:model.defer='rating_stars'  value='4'
+                                                                    id="star-4" name="rating">
                                                                     <div
                                                                         class="radio-box__state radio-box__state--primary">
 
@@ -683,7 +543,9 @@
                                                                 <!--====== Radio Box ======-->
                                                                 <div class="radio-box">
 
-                                                                    <input type="radio" id="star-4.5" name="rating">
+                                                                    <input type="radio" id="star-4.5"
+                                                                    wire:model.defer='rating_stars'  value='4.5'
+                                                                    name="rating">
                                                                     <div
                                                                         class="radio-box__state radio-box__state--primary">
 
@@ -698,7 +560,9 @@
                                                                 <!--====== Radio Box ======-->
                                                                 <div class="radio-box">
 
-                                                                    <input type="radio" id="star-5" name="rating">
+                                                                    <input type="radio" id="star-5"
+                                                                    wire:model.defer='rating_stars'  value='5'
+                                                                    name="rating">
                                                                     <div
                                                                         class="radio-box__state radio-box__state--primary">
 
@@ -709,6 +573,9 @@
                                                                 <!--====== End - Radio Box ======-->
                                                             </td>
                                                         </tr>
+                                                        @error('rating_stars')
+                                                            <h5 class="text-danger">{{ $message }}</h5>
+                                                        @enderror
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -718,30 +585,22 @@
 
                                                 <label class="gl-label" for="reviewer-text">YOUR REVIEW
                                                     *</label><textarea class="text-area text-area--primary-style"
+                                                    wire:model.lazy='commint'
                                                     id="reviewer-text"></textarea>
                                             </div>
                                             <div>
                                                 <p class="u-s-m-b-30">
-
                                                     <label class="gl-label" for="reviewer-name">NAME *</label>
-
-                                                    <input class="input-text input-text--primary-style" type="text"
+                                                    <input wire:model.defer='name' class="input-text input-text--primary-style" type="text"
                                                         id="reviewer-name">
-                                                </p>
-                                                <p class="u-s-m-b-30">
-
-                                                    <label class="gl-label" for="reviewer-email">EMAIL *</label>
-
-                                                    <input class="input-text input-text--primary-style" type="text"
-                                                        id="reviewer-email">
                                                 </p>
                                             </div>
                                         </div>
                                         <div>
-
-                                            <button class="btn btn--e-brand-shadow" type="submit">SUBMIT</button>
+                                            <button class="btn btn--e-brand-shadow" type="button" wire:click='RatingProduct()'>SUBMIT</button>
                                         </div>
                                     </form>
+                                    @endif
                                 </div>
                             </div>
                         </div>

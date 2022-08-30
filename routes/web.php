@@ -7,6 +7,9 @@ use App\Http\Livewire\HomeLivewire;
 use App\Http\Controllers\CustomerLoginController;
 use App\Http\Livewire\CheckOutLiverWire;
 use App\Http\Livewire\Components\WishListComponenets;
+use App\Http\Livewire\ContantUs;
+use App\Http\Livewire\CustomerOrder;
+use App\Http\Livewire\CustomerOrderDetails;
 use App\Http\Livewire\Site\ShowProduct;
 
 // use App\Http\Livewire\HomeLivewire;
@@ -36,10 +39,16 @@ Route::post('products' , HomeLivewire::class)->name('products.post');
 Route::get('product/{slug}' , ShowProduct::class)->name('show.product');
 Route::get('cart' , App\Http\Livewire\Components\Cart::class)->name('cart');
 Route::get('wishlist' , WishListComponenets::class)->name('wishlist');
-Route::get('check-out' , CheckOutLiverWire::class)->name('checkout');
-
+Route::get('check-out' , CheckOutLiverWire::class)->name('checkout')->middleware('auth:customers');
+Route::get('contact-us' , ContantUs::class)->name('contact');
 
 Route::post('customer-login', [CustomerLoginController::class, 'Login'])->name('customer.login');
 
-
+// protected Routd
+Route::prefix('account')->group( function(){
+    Route::middleware('auth:customers')->group(function(){
+    Route::get('/my-orders', CustomerOrder::class)->name('my.ordres');
+    Route::get('my-orders/{id}' ,CustomerOrderDetails::class)->name('customer.details');
+    });
+});
 // Route::group('')

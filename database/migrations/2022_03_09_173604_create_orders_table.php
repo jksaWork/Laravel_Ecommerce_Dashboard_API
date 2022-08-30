@@ -31,7 +31,10 @@ class CreateOrdersTable extends Migration
             $table->integer('count');
             $table->string('zip_code');
             $table->boolean('is_shiping')->default(0);
+            $table->foreignId('customer_id')->references('id')->on('customers');
             $table->enum('status' , ['ordered' , 'deliverd' , 'canceld'])->default('ordered');
+            $table->timestamp('deliverd_at')->nullable();
+            $table->timestamp('canceled_at')->nullable();
             $table->timestamps();
             // order Item
 

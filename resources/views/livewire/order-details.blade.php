@@ -59,7 +59,6 @@
                                                                 <td>{{ $item->Product->name }}</td>
                                                                 <td>{{ $item->quantity }}</td>
                                                                 <td>{{ $item->price }}</td>
-
                                                             </tr>
                                                             @endforeach
                                                             @else

@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
-   public  $orderStatus = ['ordered' =>  'badge-info' , 'deliverd' => 'badge-success' , 'canceld' => 'badge-success'];
+   public  $orderStatus = ['ordered' =>  'badge-info' , 'deliverd' => 'badge-success' , 'canceld' => 'badge-danger'];
+   public  $orderCustomer = ['ordered' =>  'badge--processing' , 'deliverd' => 'badge--shipped' , 'canceld' => 'badge--delivered'];
     // methods
     public function getStatusWithSpan(){
         return "<span class='badge {$this->orderStatus[$this->status]} '> $this->status</span>";
@@ -24,5 +25,9 @@ class Order extends Model
 
     public function Transaction(){
         return $this->hasOne(Transaction::class);
+    }
+
+    public function OrderBadgeClass():string{
+        return $this->orderCustomer[$this->status];
     }
 }

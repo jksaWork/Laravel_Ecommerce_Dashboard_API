@@ -40,21 +40,114 @@
         @include('layouts.includes.header')
 
         <!--====== Section 1 ======-->
+        <div class="u-s-p-y-60">
 
-        {{-- @yield('content') --}}
-        {{ $slot ?? ' -- '}}
-        @yield('content')
+            <!--====== Section Content ======-->
+            <div class="section__content">
+                <div class="container">
+                    <div class="breadcrumb">
+                        <div class="breadcrumb__wrap">
+                            <ul class="breadcrumb__list">
+                                <li class="has-separator">
 
-        @include('layouts.includes.footer')
-        <!--====== End - Main Header ======-->
+                                    <a href="index.html">Home</a>
+                                </li>
+                                <li class="is-marked">
+
+                                    <a href="dash-manage-order.html">My Account</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row col-md-12">
+                <div class="col-lg-3 col-md-12">
+
+                    <!--====== Dashboard Features ======-->
+                    <div class="dash__box dash__box--bg-white dash__box--shadow u-s-m-b-30">
+                        <div class="dash__pad-1">
+                            <span class="dash__text u-s-m-b-16">Hello, John Doe</span>
+                            <ul class="dash__f-list">
+                                <li>
+                                    <a class="dash-active" href="dashboard.html">Manage My Account</a>
+                                </li>
+                                <li>
+                                    <a href="dash-my-profile.html">My Profile</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('my.ordres') }}">My Orders</a>
+                                </li>
+                                <li>
+
+                                    <a href="dash-cancellation.html">My Returns &amp; Cancellations</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dash__box dash__box--bg-white dash__box--shadow dash__box--w">
+                        <div class="dash__pad-1">
+                            <ul class="dash__w-list">
+                                <li>
+                                    <div class="dash__w-wrap">
+
+                                        <span class="dash__w-icon dash__w-icon-style-1"><i
+                                                class="fas fa-cart-arrow-down"></i></span>
+
+                                        <span class="dash__w-text">{{ auth()->user()->Orders()->count() }}</span>
+
+                                        <span class="dash__w-name">Orders Placed</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="dash__w-wrap">
+
+                                        <span class="dash__w-icon dash__w-icon-style-2"><i
+                                                class="fas fa-times"></i></span>
+
+                                        <span class="dash__w-text">0</span>
+
+                                        <span class="dash__w-name">Cancel Orders</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="dash__w-wrap">
+
+                                        <span class="dash__w-icon dash__w-icon-style-3"><i
+                                                class="far fa-heart"></i></span>
+
+                                        <span class="dash__w-text">{{ Cart::instance('wishlist')->count(); }}</span>
+
+                                        <span class="dash__w-name">Wishlist</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--====== End - Dashboard Features ======-->
+                </div>
+                <div class="col-lg-9 col-md-12">
+                    {{ $slot ?? ' -- '}}
+                    @yield('content')
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- @yield('content') --}}
 
 
-        <!--====== App Content ======-->
+    @include('layouts.includes.footer')
+    <!--====== End - Main Header ======-->
 
-        <!--====== End - App Content ======-->
+
+    <!--====== App Content ======-->
+
+    <!--====== End - App Content ======-->
 
 
-        <!--====== Main Footer ======-->
+    <!--====== Main Footer ======-->
 
     </div>
     <!--====== End - Main App ======-->

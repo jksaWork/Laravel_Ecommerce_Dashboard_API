@@ -49,7 +49,7 @@
                         <div class="w-r__container">
                             <div class="w-r__wrap-1">
                                 <div class="w-r__img-wrap">
-                                    <img class="u-img-fluid" src="images/product/electronic/product3.jpg" alt=""></div>
+                                    <img class="u-img-fluid" src="{{ $item->model->image }}" alt=""></div>
                                 <div class="w-r__info">
 
                                     <span class="w-r__name">

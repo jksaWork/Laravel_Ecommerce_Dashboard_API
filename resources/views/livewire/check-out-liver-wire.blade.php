@@ -59,16 +59,18 @@
 
                                                     <label class="gl-label" for="billing-fname">FIRST NAME *</label>
 
-                                                    <input class="input-text input-text--primary-style"  wire:model='firstname' type="text" id="billing-fname" data-bill=""></div>
-                                                </br>
+<div>
+    <input class="input-text input-text--primary-style"  wire:model='firstname' type="text" id="billing-fname" data-bill=""></div>
+</div>                                                </br>
                                                     @error('firstname')
                                                         <span class="gl-link">{{ $message }}</span>
                                                     @enderror
                                                     <div class="u-s-m-b-15">
 
                                                     <label class="gl-label" for="billing-lname">LAST NAME *</label>
-
-                                                    <input class="input-text input-text--primary-style" wire:model='lastname' type="text" id="billing-lname" data-bill=""></div>
+                                                        <div>
+                                                            <input class="input-text input-text--primary-style" wire:model='lastname' type="text" id="billing-lname" data-bill=""></div>
+                                                        </div>
                                                 </br>
                                                     @error('lastname')
                                                     <span class="gl-link">{{ $message }}</span>

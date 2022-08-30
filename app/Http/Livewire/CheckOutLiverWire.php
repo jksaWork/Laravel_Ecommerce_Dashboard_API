@@ -10,6 +10,7 @@ use App\Traits\CartTrats;
 use Exception;
 use Gloudemans\Shoppingcart\Cart as ShoppingcartCart;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class CheckOutLiverWire extends Component
@@ -19,6 +20,7 @@ class CheckOutLiverWire extends Component
     public $streat_address_line_1, $phone, $order_note,   $streat_address_line_2, $email, $zip, $firstname, $lastname;
     public function mount()
     {
+        // dd(Auth::user());
         if (!session()->has('check_out')) \redirect()->to('/');
         // dd('billing_data');
         if (session()->has('billing_data')) {
@@ -51,6 +53,7 @@ class CheckOutLiverWire extends Component
         $order->line_1 = $this->streat_address_line_1;
         $order->line_2 = $this->streat_address_line_2;
         $order->city = $this->city;
+        $order->customer_id = auth()->user()->id;
         // $order->provincy = 'sad';
         $order->count = 1;
         $order->zip_code = $this->zip;

@@ -53,6 +53,12 @@
 
                                             <span>Account</span></a></li>
                                     <li>
+                                        <li>
+
+                                            <a href="{{ route('my.ordres') }}"><i class="fas fa-user-circle u-s-m-r-6"></i>
+
+                                                <span>My Orders</span></a></li>
+                                        <li>
 
                                         <a href="signup.html"><i class="fas fa-user-plus u-s-m-r-6"></i>
 
@@ -126,7 +132,7 @@
                             </li>
                             <li data-tooltip="tooltip" data-placement="left" title="" data-original-title="Contact">
 
-                                <a href="tel:+0900901904"><i class="fas fa-phone-volume"></i></a></li>
+                                <a href="{{ route('contact') }}"><i class="fas fa-phone-volume"></i></a></li>
                             <li data-tooltip="tooltip" data-placement="left" title="" data-original-title="Mail">
 
                                 <a href="mailto:contact@domain.com"><i class="far fa-envelope"></i></a></li>
@@ -900,7 +906,7 @@
                         <ul class="ah-list ah-list--design2 ah-list--link-color-secondary">
                             <li>
 
-                                <a href="shop-side-version-2.html">NEW ARRIVALS</a></li>
+                                <a href="{{ route('products') }}"> Products</a></li>
                             <li class="has-dropdown">
 
                                 <a>PAGES<i class="fas fa-angle-down u-s-m-l-6"></i></a>
@@ -1174,7 +1180,7 @@
                         <!--====== List ======-->
                         <ul class="ah-list ah-list--design1 ah-list--link-color-secondary">
                             <li>
-                                <a href="index.html"><i class="fas fa-home"></i></a></li>
+                                <a href="/"><i class="fas fa-home"></i></a></li>
                             <li class="has-dropdown">
 
 
@@ -1211,7 +1217,7 @@
                                             <span class="subtotal-text">SUBTOTAL</span>
                                             <span class="subtotal-value">$16</span></div>
                                         <div class="mini-action">
-                                            <a class="mini-link btn--e-brand-b-2" href="checkout.html">PROCEED TO CHECKOUT</a>
+                                            <a class="mini-link btn--e-brand-b-2" href="{{ route('checkout') }}">PROCEED TO CHECKOUT</a>
                                             <a class="mini-link btn--e-transparent-secondary-b-2" href="{{ route('cart') }}">VIEW CART</a></div>
                                     </div>
                                     <!--====== End - Mini Product Statistics ======-->

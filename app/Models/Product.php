@@ -28,7 +28,10 @@ class Product extends Model
 
     public function Category(){
         return $this->belongsTo(Category::class);
+    }
 
+    public function Reviews(){
+        return $this->hasMany(Reviews::class);
     }
 
     public function getStatusAttribute($key)
