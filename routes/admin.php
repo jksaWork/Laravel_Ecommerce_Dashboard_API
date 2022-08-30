@@ -12,6 +12,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Livewire\AdminContactUs;
 use App\Http\Livewire\AdminOrdersLivewire;
 use App\Http\Livewire\OrderDetails;
+use App\Http\Livewire\SettingLivewire;
 use App\Models\HomeSlider;
 // use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Route ;
@@ -29,3 +30,4 @@ Route::get('orders' , AdminOrdersLivewire::class)->name('orders');
 Route::get('order-details/{id}' , OrderDetails::class)->name('order.details');
 // aAdmin contact us
 Route::get('contact-us' , AdminContactUs::class)->name('admin.contact.us');
+Route::get('setting' , SettingLivewire::class)->name('admin.setting');

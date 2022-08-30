@@ -180,6 +180,7 @@ return [
         // external =========================================
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
         // Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
+        // anlutro\LaravelSettings\ServiceProvide,
     ],
 
     /*

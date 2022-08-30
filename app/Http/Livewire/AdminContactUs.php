@@ -2,10 +2,14 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Contant;
 use Livewire\Component;
 
 class AdminContactUs extends Component
 {
+    public function Delete($id){
+        Contant::find($id)->delete();
+    }
     public function render()
     {
         return view(

@@ -23,6 +23,7 @@ $permission = Spatie\Permission\Models\Permission::get();
             href="{{route('admin.contact.us')}}"><i class="la la-home"></i><span class="menu-title"
                 data-i18n="nav.changelog.main"> Contact us </span></a>
     </li>
+
             <li class="nav-item {{ request()->routeIs('Coupons.index')?'active':'' }}"><a
                 href="{{route('Coupons.index')}}"><i class="la la-key"></i><span class="menu-title"
                     data-i18n="nav.changelog.main"> Coupons </span></a>
@@ -43,6 +44,11 @@ $permission = Spatie\Permission\Models\Permission::get();
 
                 </ul>
             </li>
+
+            <li class="nav-item {{ request()->routeIs('admin.setting')?'active':'' }}"><a
+                href="{{route('admin.setting')}}"><i class="la la-home"></i><span class="menu-title"
+                    data-i18n="nav.changelog.main"> Setting </span></a>
+        </li>
         </ul>
         </li>
 

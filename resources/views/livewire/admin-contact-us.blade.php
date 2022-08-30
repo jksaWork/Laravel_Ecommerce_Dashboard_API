@@ -64,8 +64,8 @@
                                                                 <td>{{  $item->subject }}</td>
                                                                 <td>{{  $item->message }}</td>
                                                                 <td>
-                                                                    <a href="#" class="btn btn-outline-danger btn-sm">
-                                                                        delete
+                                                                    <a href="#" class="btn btn-outline-danger btn-sm" wire:click='Delete({{ $item->id }})'>
+                                                                        Delete
                                                                     </a>
                                                                 </td>
                                                             </tr>
