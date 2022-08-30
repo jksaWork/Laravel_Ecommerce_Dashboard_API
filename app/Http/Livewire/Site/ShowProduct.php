@@ -21,9 +21,8 @@ class ShowProduct extends Component
 
         if(!auth()->guard('customers')->check()){
             $this->emit('ErrorMessage', "You Must Have Account To Do This Event");
-        }
-        // dd($this->commint);
-        $reviews = new Reviews;
+        }else{
+            $reviews = new Reviews;
         $reviews->customer_id = auth()->guard('customers')->user()->id;
         $reviews->customer_name = auth()->guard('customers')->user()->name;
         $reviews->review = $this->rating_stars;
@@ -33,6 +32,9 @@ class ShowProduct extends Component
         // dd($reviews);
         session()->put('review_id_' . $this->Product->id ,  true);
         $this->emit('RemoveFromCart' , 'Your Review Is Published');
+        }
+        // dd($this->commint);
+
         // $this->name =  $this->commit = '';
         // dd($this->commit);
     }

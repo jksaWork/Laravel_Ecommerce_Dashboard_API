@@ -55,7 +55,7 @@
                                         to move through the checkout process faster, store shipping addresses, view and
                                         track your orders in your account and more.</span>
                                     <div class="u-s-m-b-15">
-                                        <a class="l-f-o__create-link btn--e-transparent-brand-b-2" href="signup.html">CREATE
+                                        <a class="l-f-o__create-link btn--e-transparent-brand-b-2" href="{{ route('register') }}">CREATE
                                             AN ACCOUNT</a>
                                     </div>
                                     <h1 class="gl-h1">SIGNIN</h1>

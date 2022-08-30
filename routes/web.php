@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\TestLivewire;
 use App\Http\Livewire\HomeLivewire;
 // use App\Http\Livewire\ShowProduct;
 use App\Http\Controllers\CustomerLoginController;
+use App\Http\Controllers\CustomerReqister;
 use App\Http\Livewire\CheckOutLiverWire;
 use App\Http\Livewire\Components\WishListComponenets;
 use App\Http\Livewire\ContantUs;
@@ -30,6 +32,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::post('register-cusstomer' ,  [CustomerReqister::class , 'registerCustomer'])->name('register_customer');
 
 Route::get('customer/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('test-livewire' ,  TestLivewire::class);
