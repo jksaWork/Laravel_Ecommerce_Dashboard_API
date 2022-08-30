@@ -79,51 +79,6 @@
 
                         <span class="pd-text">Click for larger zoom</span>
                     </div>
-                    <div class="u-s-m-t-15">
-                        <div>
-                            <div id="pd-o-thumbnail" class="slick-initialized slick-slider">
-                                <div class="pt-prev slick-arrow slick-disabled" aria-disabled="true" style=""><i
-                                        class="fas fa-angle-left"></i></div>
-
-
-
-
-
-                                <div class="slick-list draggable">
-                                    <div class="slick-track"
-                                        style="opacity: 1; width: 1150px; transform: translate3d(0px, 0px, 0px);">
-                                        <div class="slick-slide slick-current slick-active" style="width: 230px;"
-                                            tabindex="0" data-slick-index="0" aria-hidden="false">
-
-                                            <img class="u-img-fluid" src="images/product/product-d-1.jpg" alt="">
-                                        </div>
-                                        <div class="slick-slide slick-active" style="width: 230px;" tabindex="0"
-                                            data-slick-index="1" aria-hidden="false">
-
-                                            <img class="u-img-fluid" src="images/product/product-d-2.jpg" alt="">
-                                        </div>
-                                        <div class="slick-slide slick-active" style="width: 230px;" tabindex="0"
-                                            data-slick-index="2" aria-hidden="false">
-
-                                            <img class="u-img-fluid" src="images/product/product-d-3.jpg" alt="">
-                                        </div>
-                                        <div class="slick-slide" style="width: 230px;" tabindex="-1"
-                                            data-slick-index="3" aria-hidden="true">
-
-                                            <img class="u-img-fluid" src="images/product/product-d-4.jpg" alt="">
-                                        </div>
-                                        <div class="slick-slide" style="width: 230px;" tabindex="-1"
-                                            data-slick-index="4" aria-hidden="true">
-
-                                            <img class="u-img-fluid" src="images/product/product-d-5.jpg" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="pt-next slick-arrow" style="" aria-disabled="false"><i
-                                        class="fas fa-angle-right"></i></div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <!--====== End - Product Detail Zoom ======-->
             </div>
@@ -645,16 +600,9 @@
                                                                 <img class="aspect__img"
                                                                     src="{{ $product->image }}"
                                                                     alt=""></a>
+
                                                             <div class="product-o__action-wrap">
-                                                                <a data-modal="modal"
                                                                 <ul class="product-o__action-list">
-                                                                    <li>
-                                                                            data-modal-id="#quick-look"
-                                                                            data-tooltip="tooltip"
-                                                                            data-placement="top" title=""
-                                                                            data-original-title="Quick View"><i
-                                                                                class="fas fa-search-plus"></i></a>
-                                                                    </li>
                                                                     <li>
                                                                         <a data-modal="modal"
                                                                             data-modal-id="#add-to-cart"
@@ -669,21 +617,14 @@
                                                                             data-original-title="Add to Wishlist"><i
                                                                                 class="fas fa-heart"></i></a>
                                                                     </li>
-                                                                    <li>
-                                                                        <a href="signin.html" data-tooltip="tooltip"
-                                                                            data-placement="top" title=""
-                                                                            data-original-title="Email me When the price drops"><i
-                                                                                class="fas fa-envelope"></i></a>
-                                                                    </li>
                                                                 </ul>
                                                             </div>
                                                         </div>
                                                         <span class="product-o__category">
                                                             <a
-                                                                href="shop-side-version-2.html">Electronics</a></span>
+                                                                href="shop-side-version-2.html">{{ $product->Category->name }}</a></span>
                                                         <span class="product-o__name">
-                                                            <a href="product-detail.html">Beats Bomb Wireless
-                                                                Headphone</a></span>
+                                                            <a href="{{ route('show.product' , $product->slug) }}">{{ $product->name }}</a></span>
                                                         <div class="product-o__rating gl-rating-style"><i
                                                                 class="fas fa-star"></i><i
                                                                 class="fas fa-star"></i><i

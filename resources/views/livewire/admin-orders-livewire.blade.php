@@ -110,6 +110,7 @@
                                                                 <th> zip code </th>
                                                                 <th> status  </th>
                                                                 <th> order date  </th>
+                                                                <th> opration  </th>
                                                             </tr>
                                                         </tfoot>
                                                     </table>
