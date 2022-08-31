@@ -109,7 +109,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="banner-bg__countdown">
-                            <div class="countdown countdown--style-banner" data-countdown="2020/05/01"><div class="countdown__content"><div><span class="countdown__value">00</span><span class="countdown__key">Days</span></div></div><div class="countdown__content"><div><span class="countdown__value">00</span><span class="countdown__key">Hours</span></div></div><div class="countdown__content"><div><span class="countdown__value">00</span><span class="countdown__key">Mins</span></div></div><div class="countdown__content"><div><span class="countdown__value">00</span><span class="countdown__key">Secs</span></div></div></div>
+                            <div class="countdown countdown--style-banner" data-countdown="2022/10/01"><div class="countdown__content"><div><span class="countdown__value">00</span><span class="countdown__key">Days</span></div></div><div class="countdown__content"><div><span class="countdown__value">00</span><span class="countdown__key">Hours</span></div></div><div class="countdown__content"><div><span class="countdown__value">00</span><span class="countdown__key">Mins</span></div></div><div class="countdown__content"><div><span class="countdown__value">00</span><span class="countdown__key">Secs</span></div></div></div>
                         </div>
                         <div class="banner-bg__wrap">
                             <div class="banner-bg__text-1">

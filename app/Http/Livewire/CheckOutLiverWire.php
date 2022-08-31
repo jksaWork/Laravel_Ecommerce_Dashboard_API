@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Mail\PlaceOrderMail;
 use App\Models\Coupons;
 use App\Models\Order;
 use App\Models\OrderItem;
@@ -11,6 +12,8 @@ use Exception;
 use Gloudemans\Shoppingcart\Cart as ShoppingcartCart;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 class CheckOutLiverWire extends Component
@@ -39,6 +42,8 @@ class CheckOutLiverWire extends Component
 
     public function PalceOrder()
     {
+        try {
+            DB::beginTransaction();
         $this->val();
         $ChekOut = session()->get('check_out');
         // dd('hello');
@@ -63,7 +68,6 @@ class CheckOutLiverWire extends Component
         // dd($order);
         if (Cart::instance('cart')->count()  > 0) {
             foreach (Cart::instance('cart')->content() as $item) {
-
                 $orderItem = new  OrderItem();
                 $orderItem->price = $item->price;
                 $orderItem->quantity = $item->qty;
@@ -81,9 +85,14 @@ class CheckOutLiverWire extends Component
             $transaction->save();
         }
         $this->emit('chekOutDoneSuccessfuly');
-        // dd('done');
-        // ShoppingcartCart::deleteStoredCart('cart');
+        Mail::to(auth()->user())->send(new PlaceOrderMail($order));
         Cart::destroy();
+        DB::commit();
+        } catch (\Throwable $th) {
+            //throw $th;
+            DB::rollBack();
+            return $th;
+        }
     }
 
     public function HandelCuopone()

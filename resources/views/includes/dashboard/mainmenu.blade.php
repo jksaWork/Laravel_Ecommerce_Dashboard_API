@@ -12,15 +12,16 @@ $permission = Spatie\Permission\Models\Permission::get();
             </li>
 
             <li class="nav-item {{ request()->routeIs('categories.index')?'active':'' }}"><a
-                    href="{{route('categories.index')}}"><i class="la la-home"></i><span class="menu-title"
+                    href="{{route('categories.index')}}"><i class="la la-tty"></i><span class="menu-title"
                         data-i18n="nav.changelog.main"> categories </span></a>
             </li>
             <li class="nav-item {{ request()->routeIs('orders')?'active':'' }}"><a
-                href="{{route('orders')}}"><i class="la la-home"></i><span class="menu-title"
+                href="{{route('orders')}}"><i
+                    class="la la-list-alt"></i><span class="menu-title"
                     data-i18n="nav.changelog.main"> Orders </span></a>
         </li>
         <li class="nav-item {{ request()->routeIs('admin.contact.us')?'active':'' }}"><a
-            href="{{route('admin.contact.us')}}"><i class="la la-home"></i><span class="menu-title"
+            href="{{route('admin.contact.us')}}"><i class="la la-bell"></i><span class="menu-title"
                 data-i18n="nav.changelog.main"> Contact us </span></a>
     </li>
 
@@ -46,7 +47,8 @@ $permission = Spatie\Permission\Models\Permission::get();
             </li>
 
             <li class="nav-item {{ request()->routeIs('admin.setting')?'active':'' }}"><a
-                href="{{route('admin.setting')}}"><i class="la la-home"></i><span class="menu-title"
+                href="{{route('admin.setting')}}"><i
+                class="la la-cog"></i><span class="menu-title"
                     data-i18n="nav.changelog.main"> Setting </span></a>
         </li>
         </ul>

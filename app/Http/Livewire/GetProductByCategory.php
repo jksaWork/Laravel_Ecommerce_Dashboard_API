@@ -4,10 +4,12 @@ namespace App\Http\Livewire;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Traits\CartTrats;
 use Livewire\Component;
 
 class GetProductByCategory extends Component
 {
+    use CartTrats;
     public $PublicId;
 
     public function GetByCategoryId($id){

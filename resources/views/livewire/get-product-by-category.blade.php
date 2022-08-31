@@ -27,28 +27,21 @@
                                                 alt=""></a>
                                         <div class="product-o__action-wrap">
                                             <ul class="product-o__action-list">
+
                                                 <li>
-                                                    <a data-modal="modal" data-modal-id="#quick-look"
+                                                    <a href="javascript::void()" data-modal="modal" data-modal-id="#add-to-cart"
                                                         data-tooltip="tooltip" data-placement="top" title=""
-                                                        data-original-title="Quick View"><i
-                                                            class="fas fa-search-plus"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a data-modal="modal" data-modal-id="#add-to-cart"
-                                                        data-tooltip="tooltip" data-placement="top" title=""
+                                                        wire:click='AddToCart({{ $Prodcut   }})'
                                                         data-original-title="Add to Cart"><i
                                                             class="fas fa-plus-circle"></i></a>
                                                 </li>
                                                 <li>
-                                                    <a href="signin.html" data-tooltip="tooltip" data-placement="top"
-                                                        title="" data-original-title="Add to Wishlist"><i
+                                                    <a href="javascript::void()" data-tooltip="tooltip" data-placement="top"
+                                                    wire:click='AddToWishCart({{ $Prodcut }})'
+                                                    title=""  data-original-title="Add to Wishlist"><i
                                                             class="fas fa-heart"></i></a>
                                                 </li>
-                                                <li>
-                                                    <a href="signin.html" data-tooltip="tooltip" data-placement="top"
-                                                        title="" data-original-title="Email me When the price drops"><i
-                                                            class="fas fa-envelope"></i></a>
-                                                </li>
+
                                             </ul>
                                         </div>
                                     </div>

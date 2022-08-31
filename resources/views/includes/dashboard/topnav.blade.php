@@ -10,7 +10,7 @@
                 <li class="nav-item">
                     <a class="navbar-brand" href="#">
                         <img class="brand-logo" alt="modern admin logo"
-                            src="{{asset('uploads/' . $OrganizationProfile->logo)}}">
+                            src="{{asset('assets/images/logo/logo-1.png')}}">
                         <h3 class="brand-text">{{$OrganizationProfile->name}}</h3>
                     </a>
                 </li>
