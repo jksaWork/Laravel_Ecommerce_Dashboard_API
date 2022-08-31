@@ -146,18 +146,21 @@
                 'success'
                 );
         });
-        window.livewire.on('chekOutDoneSuccessfuly',
-    function(){
-        Swal.fire(
-                'Success Opration!',
-                'Check Out Done Successfuly ',
-                'success'
-                );
-    setTimeout(() => {
-        window.location = '/';
-    }, 2000);
-
-    } )
+                window.livewire.on('chekOutDoneSuccessfuly',
+                    function(){
+                        Swal.fire(
+                                'Success Opration!',
+                                'Check Out Done Successfuly ',
+                                'success'
+                                );
+                                setTimeout(() => {
+                                    window.location = '/';
+                                }, 2000);
+                    })
+                    window.livewire.on('Looding' ,  function(){
+                        document.querySelector('.PalceOrderLoading').children[0].classList.add('hide');
+                        document.querySelector('.PalceOrderLoading').children[1].classList.remove('hide');
+                    })
 
 
 })

@@ -19,7 +19,7 @@ use Livewire\Component;
 class CheckOutLiverWire extends Component
 {
     use CartTrats;
-    public $cartTotal, $CouponCode, $payment_method, $city;
+    public $cartTotal, $CouponCode, $payment_method, $city, $loading;
     public $streat_address_line_1, $phone, $order_note,   $streat_address_line_2, $email, $zip, $firstname, $lastname;
     public function mount()
     {
@@ -42,11 +42,13 @@ class CheckOutLiverWire extends Component
 
     public function PalceOrder()
     {
-        try {
-            DB::beginTransaction();
+        $this->loading = true;
         $this->val();
+
+        try {
+        $this->emit('Looding');
+        DB::beginTransaction();
         $ChekOut = session()->get('check_out');
-        // dd('hello');
         // dd($this->payment_method);
         $order = new Order();
         $order->dicount = $ChekOut['discount'];
@@ -65,7 +67,8 @@ class CheckOutLiverWire extends Component
         $order->is_shiping = '';
         $order->sub_total = $ChekOut['sub_total'];
         $order->save();
-        // dd($order);
+        // dd(Cart::instance('cart')->count());
+
         if (Cart::instance('cart')->count()  > 0) {
             foreach (Cart::instance('cart')->content() as $item) {
                 $orderItem = new  OrderItem();
@@ -84,14 +87,18 @@ class CheckOutLiverWire extends Component
             $transaction->status = 'pending';
             $transaction->save();
         }
-        $this->emit('chekOutDoneSuccessfuly');
+        $this->loading = false;
+        // dd('done');
         Mail::to(auth()->user())->send(new PlaceOrderMail($order));
         Cart::destroy();
         DB::commit();
+        $this->emit('chekOutDoneSuccessfuly');
+
         } catch (\Throwable $th) {
             //throw $th;
+            $this->loading = false;
             DB::rollBack();
-            return $th;
+            dd($th);
         }
     }
 

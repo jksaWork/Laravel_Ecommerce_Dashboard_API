@@ -10,11 +10,17 @@
     <meta name="keywords"
         content="admin template, modern admin template, dashboard template, flat admin template, responsive admin template, web app, crypto dashboard, bitcoin dashboard">
     <meta name="author" content="PIXINVENT">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css" integrity="sha512-vebUliqxrVkBy3gucMhClmyQP9On/HAWQdKDXRaAlb/FKuTbxkjPKUyqVOxAcGwFDka79eTF+YXwfke1h3/wfg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/font-awesome-line-awesome/css/all.min.css" integrity="sha512-dC0G5HMA6hLr/E1TM623RN6qK+sL8sz5vB+Uc68J7cBon68bMfKcvbkg6OqlfGHo1nMmcCxO5AinnRTDhWbWsA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css"
+        integrity="sha512-vebUliqxrVkBy3gucMhClmyQP9On/HAWQdKDXRaAlb/FKuTbxkjPKUyqVOxAcGwFDka79eTF+YXwfke1h3/wfg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/font-awesome-line-awesome/css/all.min.css"
+        integrity="sha512-dC0G5HMA6hLr/E1TM623RN6qK+sL8sz5vB+Uc68J7cBon68bMfKcvbkg6OqlfGHo1nMmcCxO5AinnRTDhWbWsA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css" rel="stylesheet">
-    <title>{{ $OrganizationProfile->name }} | @yield('title' ,  'Dashboar')
+    <title>{{ $OrganizationProfile->name }} | @yield('title' , 'Dashboar')
     </title>
     <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('AdminPublic/uploads/' . $OrganizationProfile->logo)}}">
@@ -31,17 +37,21 @@
     {{-- switch --}}
     <link rel="stylesheet" type="text/css"
         href="{{asset('AdminPublic/app-assets/vendors/css/forms/toggle/bootstrap-switch.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('AdminPublic/app-assets/vendors/css/forms/toggle/switchery.min.css')}}">
+    <link rel="stylesheet" type="text/css"
+        href="{{asset('AdminPublic/app-assets/vendors/css/forms/toggle/switchery.min.css')}}">
     {{-- switch --}}
     {{-- select2 --}}
-    <link rel="stylesheet" type="text/css" href="{{asset('AdminPublic/app-assets/vendors/css/forms/selects/select2.min.css')}}">
+    <link rel="stylesheet" type="text/css"
+        href="{{asset('AdminPublic/app-assets/vendors/css/forms/selects/select2.min.css')}}">
     {{-- end select2 --}}
     @if (app()->getLocale()== 'ar')
     <!-- BEGIN VENDOR CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('AdminPublic/app-assets/css-rtl/vendors.css')}}">
     <link rel="stylesheet" type="text/css"
         href="{{asset('AdminPublic/app-assets/vendors/css/tables/datatable/datatables.min.css')}}">
-    <link rel="stNo hint path defined for [sweetalert]. (View: /home/jksa/Desktop/Laravel Project/Laravel-ecommerce/resources/views/layouts/master.blade.php) ylesheet" type="text/css"
+    <link
+        rel="stNo hint path defined for [sweetalert]. (View: /home/jksa/Desktop/Laravel Project/Laravel-ecommerce/resources/views/layouts/master.blade.php) ylesheet"
+        type="text/css"
         href="{{asset('AdminPublic/app-assets/vendors/css/tables/extensions/responsive.dataTables.min.css')}}">
     <link rel="stylesheet" type="text/css"
         href="{{asset('AdminPublic/app-assets/vendors/css/tables/extensions/colReorder.dataTables.min.css')}}">
@@ -59,8 +69,10 @@
     <!-- BEGIN Page Level CSS-->
     <link rel="stylesheet" type="text/css"
         href="{{asset('AdminPublic/app-assets/css-rtl/core/menu/menu-types/vertical-menu.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('AdminPublic/app-assets/css-rtl/plugins/animate/animate.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('AdminPublic/app-assets/css-rtl/core/colors/palette-gradient.css')}}">
+    <link rel="stylesheet" type="text/css"
+        href="{{asset('AdminPublic/app-assets/css-rtl/plugins/animate/animate.css')}}">
+    <link rel="stylesheet" type="text/css"
+        href="{{asset('AdminPublic/app-assets/css-rtl/core/colors/palette-gradient.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('AdminPublic/app-assets/css-rtl/pages/login-register.css')}}">
     <!-- END Page Level CSS-->
     {{-- Google fonts --}}
@@ -92,9 +104,12 @@
     <link rel="stylesheet" type="text/css" href="{{asset('AdminPublic/app-assets/css/custom.css')}}">
     <!-- END MODERN CSS-->
     <!-- BEGIN Page Level CSS-->
-    <link rel="stylesheet" type="text/css" href="{{asset('AdminPublic/app-assets/css/core/menu/menu-types/vertical-menu.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('AdminPublic/app-assets/css-rtl/plugins/animate/animate.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('AdminPublic/app-assets/css/core/colors/palette-gradient.css')}}">
+    <link rel="stylesheet" type="text/css"
+        href="{{asset('AdminPublic/app-assets/css/core/menu/menu-types/vertical-menu.css')}}">
+    <link rel="stylesheet" type="text/css"
+        href="{{asset('AdminPublic/app-assets/css-rtl/plugins/animate/animate.css')}}">
+    <link rel="stylesheet" type="text/css"
+        href="{{asset('AdminPublic/app-assets/css/core/colors/palette-gradient.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('AdminPublic/app-assets/css/pages/login-register.css')}}">
     <!-- END Page Level CSS-->
     <!-- BEGIN Custom CSS-->
@@ -107,12 +122,13 @@
     @stack('links')
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@500&display=swap');
-        *{
+
+        * {
             font-family: 'Cairo', sans-serif;
         }
-        </style>
+    </style>
     <style>
-        *{
+        * {
             text-transform: capitalize;
         }
     </style>
@@ -136,20 +152,25 @@
     <script src="{{asset('AdminPublic/app-assets/vendors/js/vendors.min.js')}}" type="text/javascript"></script>
     <!-- BEGIN VENDOR JS-->
     <!-- BEGIN PAGE VENDOR JS-->
-    <script src="{{asset('AdminPublic/app-assets/vendors/js/forms/validation/jqBootstrapValidation.js')}}" type="text/javascript">
+    <script src="{{asset('AdminPublic/app-assets/vendors/js/forms/validation/jqBootstrapValidation.js')}}"
+        type="text/javascript">
     </script>
-    <script src="{{asset('AdminPublic/app-assets/vendors/js/tables/datatable/datatables.min.js')}}" type="text/javascript">
+    <script src="{{asset('AdminPublic/app-assets/vendors/js/tables/datatable/datatables.min.js')}}"
+        type="text/javascript">
     </script>
     <script src="{{asset('AdminPublic/app-assets/vendors/js/tables/datatable/dataTables.responsive.min.js')}}"
         type="text/javascript">
     </script>
-    <script src="{{asset('AdminPublic/app-assets/vendors/js/tables/buttons.colVis.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('AdminPublic/app-assets/vendors/js/tables/buttons.colVis.min.js')}}" type="text/javascript">
+    </script>
     <script src="{{asset('AdminPublic/app-assets/vendors/js/tables/datatable/dataTables.colReorder.min.js')}}"
         type="text/javascript">
     </script>
-    <script src="{{asset('AdminPublic/app-assets/vendors/js/tables/datatable/dataTables.buttons.min.js')}}" type="text/javascript">
+    <script src="{{asset('AdminPublic/app-assets/vendors/js/tables/datatable/dataTables.buttons.min.js')}}"
+        type="text/javascript">
     </script>
-    <script src="{{asset('AdminPublic/app-assets/vendors/js/tables/datatable/buttons.bootstrap4.min.js')}}" type="text/javascript">
+    <script src="{{asset('AdminPublic/app-assets/vendors/js/tables/datatable/buttons.bootstrap4.min.js')}}"
+        type="text/javascript">
     </script>
     <script src="{{asset('AdminPublic/app-assets/vendors/js/tables/datatable/dataTables.fixedHeader.min.js')}}"
         type="text/javascript">
@@ -159,11 +180,13 @@
     <!-- BEGIN MODERN JS-->
     <script src="{{asset('AdminPublic/app-assets/js/core/app-menu.js')}}" type="text/javascript"></script>
     <script src="{{asset('AdminPublic/app-assets/js/core/app.js')}}" type="text/javascript"></script>
-    <script src="{{asset('AdminPublic/app-assets/vendors/js/forms/select/select2.full.min.js')}}" type="text/javascript">
+    <script src="{{asset('AdminPublic/app-assets/vendors/js/forms/select/select2.full.min.js')}}"
+        type="text/javascript">
     </script>
     <!-- END MODERN JS-->
     <!-- BEGIN PAGE LEVEL JS-->
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script> --}}
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
+    --}}
     {{-- SWEETALERT FOR LIVEWIRE --}}
     {{-- @include('sweetalert::alert') --}}
     {{-- END SWEETALERT FOR LIVEWIRE --}}
@@ -206,13 +229,13 @@
                                                 }
                                             });
                                         });
+
                                     })
 
                                     //to close modal when payment to client-representative done
-                                    window.livewire.on('DonePayment', (status, id) => {
-                                    console.log("dfdf");
-                                    $('#payModal'+id).modal('hide');
-                                    });
+
+
+
 
 
     </script>

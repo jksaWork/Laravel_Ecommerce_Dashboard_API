@@ -6,7 +6,7 @@ use App\Models\Customer;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
-class AdminAdminDashBoard extends Controller
+class AdminAdminDashpBoard extends Controller
 {
     public function index(){
         $data['orders'] = Order::limit(5)->latest()->get();
