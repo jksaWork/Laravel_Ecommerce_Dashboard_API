@@ -47,10 +47,9 @@
                                     </div>
 
                                     <span class="product-o__category">
-
-                                        <a href="shop-side-version-2.html">{{ $Prodcut->Category->name }}</a></span>
+                                        <a href="#">{{ $Prodcut->Category->name }}</a></span>
                                     <span class="product-o__name">
-                                        <a href="product-detail.html">{{ $Prodcut->name }}</a></span>
+                                        <a href="{{ route('show.product', $Prodcut->slug) }}">{{ $Prodcut->name }}</a></span>
                                     <div class="product-o__rating gl-rating-style"><i class="fas fa-star"></i><i
                                             class="fas fa-star"></i><i class="fas fa-star"></i><i
                                             class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>

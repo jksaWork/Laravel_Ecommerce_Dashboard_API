@@ -19,7 +19,7 @@ class CategoryController extends Controller
     public function index()
     {
         // dd('tihs is good');
-        $Categories = Category::get();
+        $Categories = Category::paginate(10);
         return view('Admin.categories.index' , compact('Categories'));
     }
 
@@ -41,7 +41,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $request->slug = 'jksa';
+        // $request->slug = 'jksa';
         Category::create($request->except('_token'));
         notify()->success('category created sucessfuly ', 'success messages');
         return redirect()->back();

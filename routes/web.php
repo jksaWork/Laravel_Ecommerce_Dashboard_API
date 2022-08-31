@@ -36,7 +36,7 @@ Route::post('register-cusstomer' ,  [CustomerReqister::class , 'registerCustomer
 
 Route::get('customer/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('test-livewire' ,  TestLivewire::class);
-Route::get('products' , HomeLivewire::class)->name('products');
+Route::get('products/{CategoryID?}' , HomeLivewire::class)->name('products');
 Route::post('products' , HomeLivewire::class)->name('products.post');
 
 Route::get('product/{slug}' , ShowProduct::class)->name('show.product');

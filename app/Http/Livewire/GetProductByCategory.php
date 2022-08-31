@@ -23,7 +23,7 @@ class GetProductByCategory extends Component
             })->limit(8)->get();
 
         return view('livewire.get-product-by-category', [
-            'Categories'=> Category::get(),
+            'Categories'=> Category::NotChild()->get(),
             'Prodcuts'=> $Prodcuts,
         ]);
     }

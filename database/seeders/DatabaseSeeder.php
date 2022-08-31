@@ -28,6 +28,22 @@ class DatabaseSeeder extends Seeder
         ]);
         $this->call(OrganizationProfileSeeder::class);
         Category::factory(5)->create();
+        Category::factory(2)->create([
+            'parent_id' => Category::NotChild()->get()->random()->id
+        ]);
+        Category::factory(2)->create([
+            'parent_id' => Category::NotChild()->get()->random()->id
+        ]);
+        Category::factory(2)->create([
+            'parent_id' => Category::NotChild()->get()->random()->id
+        ]);
+        Category::factory(2)->create([
+            'parent_id' => Category::NotChild()->get()->random()->id
+        ]);
+        Category::factory(2)->create([
+            'parent_id' => Category::NotChild()->get()->random()->id
+        ]);
+
         Product::factory(22)->create();
         HomeSlider::factory(5)->create();
         OfferSaleDate::factory(1)->create();

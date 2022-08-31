@@ -44,14 +44,14 @@ class CheckOutLiverWire extends Component
     {
         $this->loading = true;
         $this->val();
+        $this->emit('Looding');
 
         try {
-        $this->emit('Looding');
         DB::beginTransaction();
         $ChekOut = session()->get('check_out');
         // dd($this->payment_method);
         $order = new Order();
-        $order->dicount = $ChekOut['discount'];
+        $order->dicount = $ChekOut['discount'] ?? 0;
         $order->tax = $ChekOut['tax'];
         $order->total = $ChekOut['total'];
         $order->first_name = $this->firstname;
@@ -92,6 +92,7 @@ class CheckOutLiverWire extends Component
         Mail::to(auth()->user())->send(new PlaceOrderMail($order));
         Cart::destroy();
         DB::commit();
+        // session()->forget('check_out');
         $this->emit('chekOutDoneSuccessfuly');
 
         } catch (\Throwable $th) {
