@@ -50,7 +50,7 @@
                                 <ul style="width:120px">
                                     @if (auth()->guard("customers")->check())
                                     <li>
-                                        <a href="dashboard.html"><i class="fas fa-user-circle u-s-m-r-6"></i>
+                                        <a href="{{ route('MangeMyProfile') }}"><i class="fas fa-user-circle u-s-m-r-6"></i>
                                             <span>Account</span></a>
                                     </li>
                                     @endif
@@ -74,8 +74,12 @@
                                     @endif
                                     @if (auth()->guard("customers")->check())
                                     <li>
-                                        <a href="signup.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
-                                            <span>Signout</span></a>
+                                        <form action="{{ route('logout') }}" method="post" id='#logout' style="display: none">
+                                            @csrf
+                                        </form>
+                                        <a href="#" onclick="document.getElementById('#logout').submit()"><i class="fas fa-lock-open u-s-m-r-6"></i>
+                                            <span>Signout</span>
+                                        </a>
                                     </li>
                                     @endif
                                 </ul>
@@ -1094,7 +1098,7 @@
                                 <a href="{{ route('products') }}"> PRODUCTS</a>
                             </li>
                             <livewire:categoreis-componnets>
-                            <li class="has-dropdown">
+                            {{-- <li class="has-dropdown">
 
                                 <a>BLOG<i class="fas fa-angle-down u-s-m-l-6"></i></a>
 
@@ -1124,7 +1128,7 @@
                                     </li>
                                 </ul>
                                 <!--====== End - Dropdown ======-->
-                            </li>
+                            </li> --}}
                             <li>
                                 <a href="{{ route('contact') }}">CONTACT US </a>
                             </li>
@@ -1164,7 +1168,7 @@
                                 <a href="{{ route('wishlist') }}"><i class="far fa-heart"></i>
                                     <span class="total-item-round">{{ Cart::instance('wishlist')->count(); }}</span></a>
                                 @else
-                                <a href="wishlist.html"><i class="far fa-heart"></i></a>
+                                <a href="{{ route('wishlist') }}"><i class="far fa-heart"></i></a>
                                 @endif
                             </li>
                             {{-- <a href="wishlist.html"><i class="far fa-heart"></i></a></li> --}}
@@ -1173,7 +1177,7 @@
                                 <a class="mini-cart-shop-link" href="/cart"><i class="fas fa-shopping-bag"></i>
                                     <span class="total-item-round">{{ Cart::instance('cart')->count(); }}</span></a>
                                 @else
-                                <a class="mini-cart-shop-link"><i class="fas fa-shopping-bag"></i></a>
+                                <a class="mini-cart-shop-link" href="{{ route('cart') }}"><i class="fas fa-shopping-bag"></i></a>
                                 @endif
                                 <!--====== Dropdown ======-->
                                 <span class="js-menu-toggle"></span>

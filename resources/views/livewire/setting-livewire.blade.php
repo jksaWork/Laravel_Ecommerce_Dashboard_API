@@ -104,6 +104,31 @@
                                                                          @enderror
                                                                     </div>
                                                                 </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for="">App Name </label>
+                                                                        <input type="text"
+                                                                        value="{{ setting()->get('app_name') ?? ' ' }}"
+                                                                        wire:model='app_name'
+                                                                            class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                                                                        @error('app_name')
+                                                                        <small id="helpId" class="form-text text-muted">{{ $message }}</small>
+                                                                        @enderror
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for="">App image </label>
+                                                                        <input type="file"
+                                                                        {{-- value="{{ setting()->get('app_image') ?? ' ' }}" --}}
+                                                                        wire:model='app_image'
+                                                                            class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                                                                        @error('app_image')
+                                                                        <small id="helpId" class="form-text text-muted">{{ $message }}</small>
+                                                                        @enderror
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <button class="btn btn-primary" type="button" wire:click='SaveSetting'> Save Setting</button>

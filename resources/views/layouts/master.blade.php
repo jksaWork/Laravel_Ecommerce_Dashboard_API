@@ -19,7 +19,7 @@
         integrity="sha512-dC0G5HMA6hLr/E1TM623RN6qK+sL8sz5vB+Uc68J7cBon68bMfKcvbkg6OqlfGHo1nMmcCxO5AinnRTDhWbWsA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css" rel="stylesheet">
+    {{-- <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css" rel="stylesheet"> --}}
     <title>{{ $OrganizationProfile->name }} | @yield('title' , 'Dashboar')
     </title>
     <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.png">

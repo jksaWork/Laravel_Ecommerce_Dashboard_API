@@ -7,6 +7,7 @@
 use App\Http\Controllers\AdminAdminDashBoard;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CouponsController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeSliderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Livewire\AdminContactUs;
@@ -17,7 +18,7 @@ use App\Models\HomeSlider;
 // use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Route ;
 
-Route::get('admin-dashboard' ,[AdminAdminDashBoard::class, 'index'])
+Route::get('admin-dashboard' ,[DashboardController::class, 'index'])
     ->name('admin.dashboard'); # get  admin dashboard --------------------
 // Route::post;
 Route::resource('categories', CategoryController::class); # all category oprations -------------

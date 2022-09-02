@@ -360,69 +360,10 @@
                                                     is only available for some countries)</span>
                                             </div>
                                             <div class="u-s-m-b-10">
-
                                                 <!--====== Radio Box ======-->
                                                 <div class="radio-box">
-
-                                                    <input type="radio" id="direct-bank-transfer" name="payment"
-                                                        wire:model='payment_method'>
-                                                    <div class="radio-box__state radio-box__state--primary">
-
-                                                        <label class="radio-box__label"
-                                                            for="direct-bank-transfer">Direct Bank Transfer</label>
-                                                    </div>
-                                                </div>
-                                                <!--====== End - Radio Box ======-->
-
-                                                <span class="gl-text u-s-m-t-6">Make your payment directly into our bank
-                                                    account. Please use your Order ID as the payment reference. Your
-                                                    order will not be shipped until the funds have cleared in our
-                                                    account.</span>
-                                            </div>
-                                            <div class="u-s-m-b-10">
-
-                                                <!--====== Radio Box ======-->
-                                                <div class="radio-box">
-
-                                                    <input type="radio" id="pay-with-check" name="payment_credit_pay"
-                                                        wire:model='payment_method'>
-                                                    <div class="radio-box__state radio-box__state--primary">
-
-                                                        <label class="radio-box__label" for="pay-with-check">Pay With
-                                                            Check</label>
-                                                    </div>
-                                                </div>
-                                                <!--====== End - Radio Box ======-->
-
-                                                <span class="gl-text u-s-m-t-6">Please send a check to Store Name, Store
-                                                    Street, Store Town, Store State / County, Store Postcode.</span>
-                                            </div>
-                                            <div class="u-s-m-b-10">
-
-                                                <!--====== Radio Box ======-->
-                                                <div class="radio-box">
-
-                                                    <input type="radio" id="pay-with-card" name="payment_credit"
-                                                        wire:model='payment_method'>
-                                                    <div class="radio-box__state radio-box__state--primary">
-
-                                                        <label class="radio-box__label" for="pay-with-card">Pay With
-                                                            Credit / Debit Card</label>
-                                                    </div>
-                                                </div>
-                                                <!--====== End - Radio Box ======-->
-
-                                                <span class="gl-text u-s-m-t-6">International Credit Cards must be
-                                                    eligible for use within the United States.</span>
-                                            </div>
-                                            <div class="u-s-m-b-10">
-
-                                                <!--====== Radio Box ======-->
-                                                <div class="radio-box">
-
                                                     <input type="radio" id="pay-pal" name="payment">
                                                     <div class="radio-box__state radio-box__state--primary">
-
                                                         <label class="radio-box__label" for="pay-pal">Pay Pal</label>
                                                     </div>
                                                 </div>

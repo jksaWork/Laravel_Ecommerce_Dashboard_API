@@ -69,16 +69,16 @@
                     <!--====== Dashboard Features ======-->
                     <div class="dash__box dash__box--bg-white dash__box--shadow u-s-m-b-30">
                         <div class="dash__pad-1">
-                            <span class="dash__text u-s-m-b-16">Hello, John Doe</span>
+                            <span class="dash__text u-s-m-b-16">Hello, {{ auth()->user()->name ?? '-' }}</span>
                             <ul class="dash__f-list">
                                 <li>
-                                    <a class="dash-active" href="dashboard.html">Manage My Account</a>
+                                    <a class="{{ request()->routeIs('MangeMyProfile') ? "dash-active" : ""  }}" href="dashboard.html">Manage My Account</a>
                                 </li>
                                 <li>
-                                    <a href="dash-my-profile.html">My Profile</a>
+                                    <a   class="{{ request()->routeIs('MyProfile') ? "dash-active" : ""  }}" href="{{ route('MyProfile') }}">My Profile</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('my.ordres') }}">My Orders</a>
+                                    <a  class="{{ request()->routeIs('my.ordres') ? "dash-active" : ""  }}" href="{{ route('my.ordres') }}">My Orders</a>
                                 </li>
                                 <li>
 

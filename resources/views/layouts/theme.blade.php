@@ -42,7 +42,7 @@
         <!--====== Section 1 ======-->
 
         {{-- @yield('content') --}}
-        {{ $slot ?? ' -- '}}
+        {{ $slot ?? '  '}}
         @yield('content')
 
         @include('layouts.includes.footer')

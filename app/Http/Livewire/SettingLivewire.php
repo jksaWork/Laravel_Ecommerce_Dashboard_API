@@ -3,18 +3,19 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-
+use  Livewire\WithFileUploads;
 class SettingLivewire extends Component
 {
-    public $name, $email, $phone_1, $phone_2, $location;
+    use WithFileUploads;
+    public $name, $email, $phone_1, $phone_2, $location, $app_name, $app_image;
     public function SaveSetting(){
-        // dd('hello');
         $valid = $this->validate([
             'name' => 'required',
             'email' => 'required',
             'phone_1'=> 'required',
             'phone_2' => 'required',
-            'location' => 'required'
+            'location' => 'required',
+            'app_name'=> 'required',
         ]);
         setting($valid)->save();
         notify()->success('Seeting Wasa Saved');
@@ -27,6 +28,7 @@ class SettingLivewire extends Component
         $this->phone_1 = setting()->get('phone_1');
         $this->phone_2 = setting()->get('phone_2');
         $this->location = setting()->get('location');
+        $this->app_name = setting()->get('app_name');
     }
     public function render()
     {

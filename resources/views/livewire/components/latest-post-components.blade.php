@@ -39,32 +39,17 @@
                                                 <div class="product-o__action-wrap">
                                                     <ul class="product-o__action-list">
                                                         <li>
-
-                                                            <a data-modal="modal" data-modal-id="#quick-look"
-                                                                data-tooltip="tooltip" data-placement="top" title=""
-                                                                data-original-title="Quick View"><i
-                                                                    class="fas fa-search-plus"></i></a>
-                                                        </li>
-                                                        <li>
-
                                                             <a data-modal="modal" data-modal-id="#add-to-cart"
                                                                 data-tooltip="tooltip" data-placement="top" title=""
                                                                 data-original-title="Add to Cart"><i
-                                                                    class="fas fa-plus-circle"></i></a>
+                                                                    class="fas fa-plus-circle"></i>
+                                                            </a>
                                                         </li>
                                                         <li>
-
                                                             <a href="signin.html" data-tooltip="tooltip"
                                                                 data-placement="top" title=""
                                                                 data-original-title="Add to Wishlist"><i
                                                                     class="fas fa-heart"></i></a>
-                                                        </li>
-                                                        <li>
-
-                                                            <a href="signin.html" data-tooltip="tooltip"
-                                                                data-placement="top" title=""
-                                                                data-original-title="Email me When the price drops"><i
-                                                                    class="fas fa-envelope"></i></a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -72,20 +57,19 @@
 
                                             <span class="product-o__category">
 
-                                                <a href="shop-side-version-2.html">{{ $Prodcut->name }}</a></span>
+                                                <a href="{{ route('show.product' , $Prodcut->slug) }}">{{ $Prodcut->name }}</a></span>
 
                                             <span class="product-o__name">
-                                                <a href="product-detail.html">{{ $Prodcut->short_descriptions }}</a></span>
+                                                <a href="{{  route('show.product' , $Prodcut->slug)  }}">{{ $Prodcut->short_descriptions }}</a></span>
                                             <div class="product-o__rating gl-rating-style"><i class="far fa-star"></i><i
                                                     class="far fa-star"></i><i class="far fa-star"></i><i
                                                     class="far fa-star"></i><i class="far fa-star"></i>
-
                                                 <span class="product-o__review">(0)</span>
                                             </div>
 
-                                            <span class="product-o__price">$125.00
+                                            <span class="product-o__price">${{ $Prodcut->regular_price }}
 
-                                                <span class="product-o__discount">$160.00</span></span>
+                                                <span class="product-o__discount">${{ $Prodcut->sale_price }} </span></span>
                                         </div>
                                     </div>
                                 </div>

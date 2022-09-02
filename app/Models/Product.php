@@ -16,7 +16,7 @@ class Product extends Model
         static::creating(function ($post) {
             $post->slug = Str::slug($post->name);
             $post->description = $post->description ? $post->description : 'jksa altignai osma';
-            $post->sale_price = 21;
+            $post->sale_price = random_int(1, 100);
             // $post->save();
         });
     }
@@ -25,7 +25,15 @@ class Product extends Model
     {
         return asset('assets/images/images/products/'. $key);
     }
+    public function getSalePriceAttribute($key)
+    {
+        return number_format($key, 2);
+    }
 
+    public function getRegularPriceAttribute($key)
+    {
+        return number_format($key, 2);
+    }
     public function Category(){
         return $this->belongsTo(Category::class);
     }
@@ -43,6 +51,10 @@ class Product extends Model
     {
         // dd($key);
         return $key == 'inStock' ? '<span class="badge badge-success"> in stock </span>' : "<span class='badge badge-warning'> out of stock </span>";
+    }
+
+    public function Brands(){
+        return $this->belongsToMany(Brands::class, 'products_brands', 'product_id',  'brand_id');
     }
 
 }

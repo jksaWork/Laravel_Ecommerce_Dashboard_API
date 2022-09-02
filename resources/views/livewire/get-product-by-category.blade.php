@@ -1,5 +1,5 @@
 <div>
-    <div wire:ignore.self class="section__content">
+    <div wire:ignore.self class="section__content" style="margin: 40px">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

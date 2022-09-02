@@ -12,6 +12,8 @@ use App\Http\Livewire\Components\WishListComponenets;
 use App\Http\Livewire\ContantUs;
 use App\Http\Livewire\CustomerOrder;
 use App\Http\Livewire\CustomerOrderDetails;
+use App\Http\Livewire\CustomerProfile;
+use App\Http\Livewire\MangeMyProfile;
 use App\Http\Livewire\Site\ShowProduct;
 
 // use App\Http\Livewire\HomeLivewire;
@@ -50,8 +52,13 @@ Route::post('customer-login', [CustomerLoginController::class, 'Login'])->name('
 // protected Routd
 Route::prefix('account')->group( function(){
     Route::middleware('auth:customers')->group(function(){
+    Route::get('my-profile', CustomerProfile::class)->name('MyProfile');
+
     Route::get('/my-orders', CustomerOrder::class)->name('my.ordres');
     Route::get('my-orders/{id}' ,CustomerOrderDetails::class)->name('customer.details');
-    });
+    Route::get('mange-my-account', MangeMyProfile::class)->name('MangeMyProfile');
 });
+
+});
+
 // Route::group('')

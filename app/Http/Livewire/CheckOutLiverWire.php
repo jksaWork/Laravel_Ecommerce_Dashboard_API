@@ -45,7 +45,6 @@ class CheckOutLiverWire extends Component
         $this->loading = true;
         $this->val();
         $this->emit('Looding');
-
         try {
         DB::beginTransaction();
         $ChekOut = session()->get('check_out');
@@ -89,8 +88,8 @@ class CheckOutLiverWire extends Component
         }
         $this->loading = false;
         // dd('done');
-        Mail::to(auth()->user())->send(new PlaceOrderMail($order));
-        Cart::destroy();
+        // Mail::to(auth()->user())->send(new PlaceOrderMail($order));
+        Cart::instance('cart')->destroy();
         DB::commit();
         // session()->forget('check_out');
         $this->emit('chekOutDoneSuccessfuly');
@@ -145,6 +144,7 @@ class CheckOutLiverWire extends Component
             'billing_data',
             $validData
         );
+        notify()->success(' Biliing And Shping' , 'Your Data Was Saved');
         // $this->emit('RemoveFromCart', 'Data Was Saved ' );
         // dd($validData);
     }

@@ -24,7 +24,9 @@
                 <ul style="width:200px">
                     @foreach ($category->Childs as $child )
                     <li>
-                        <a href="{{ route('products', $child->id) }}">{{ $child->name }}</a>
+                        <a href="{{ route('products', $child->id) }}"
+                            wire:click='ProductWithCategoryId({{ $child->id }})'
+                            >{{ $child->name }}</a>
                     </li>
                     @endforeach
                 </ul>

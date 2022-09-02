@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Contant extends Model
 {
+    use HasFactory, HasFactory;
+
     protected $guarded = [];
-    use HasFactory;
 }

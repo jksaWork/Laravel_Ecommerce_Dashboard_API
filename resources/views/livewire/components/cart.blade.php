@@ -173,8 +173,7 @@
                                                             <td>GRAND TOTAL</td>
                                                             <td>
                                                                 @if($cartTotal)
-                                                                <span class="product-o__discount"> {{
-                                                                    cart::instance('cart')->total() }}</span> {{
+                                                                {{
                                                                 number_format($cartTotal , 2) }}
                                                                 @else
                                                                 {{Cart::instance('cart')->total() }}

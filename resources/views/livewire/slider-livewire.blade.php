@@ -1,6 +1,4 @@
 <div>
-
-    {{-- @dd($Sliders) --}}
     <div class="s-skeleton s-skeleton--h-600 s-skeleton--bg-grey">
         <div class="owl-carousel primary-style-1 owl-loaded owl-drag" id="hero-slider">
             <div class="owl-stage-outer">
@@ -21,7 +19,7 @@
                                             <span class="content-span-3 u-c-white">{{ $Slider->description }}</span>
                                             <span class="content-span-4 u-c-white">Starting At
                                                 <span class="u-c-brand">{{ '$' . $Slider->regular_price}}</span></span>
-                                            <a class="shop-now-link btn--e-brand" href="shop-side-version-2.html">SHOP
+                                            <a class="shop-now-link btn--e-brand" href="{{ route('products') }}">SHOP
                                                 NOW</a>
                                         </div>
                                     </div>

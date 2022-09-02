@@ -45,6 +45,20 @@ $permission = Spatie\Permission\Models\Permission::get();
 
                 </ul>
             </li>
+            <li class="nav-item has-sub {{ request()->is('products/*') ? 'open':'' }}"><a href="#"><i
+                class="la la-list-alt"></i><span class="menu-title" data-i18n="nav.templates.main"> Customers
+                mangement</span></a>
+        <ul class="menu-content" style="">
+            <li class="is-shown {{request()->routeIs('products.index') ? 'active':'' }}">
+                <a class="menu-item" href="{{route('products.index') }}" data-i18n="nav.dash.ecommerce"> Show
+                    All Products </a>
+            </li>
+            <li class="is-shown {{ request()->routeIs('homeSlider.index')?'active':'' }}"><a class="menu-item"
+                    href="{{ route('homeSlider.index') }}" data-i18n="nav.dash.crypto"> Home Slider </a>
+            </li>
+
+        </ul>
+    </li>
 
             <li class="nav-item {{ request()->routeIs('admin.setting')?'active':'' }}"><a
                 href="{{route('admin.setting')}}"><i
