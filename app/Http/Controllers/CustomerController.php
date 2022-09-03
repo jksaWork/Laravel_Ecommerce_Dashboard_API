@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Traits\ChangeStatusTrait;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
+    use ChangeStatusTrait;
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +16,8 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        $customers = Customer::get();
+        return view('Admin.customers.index', compact('customers'));
     }
 
     /**
@@ -24,7 +27,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.customers.create');
     }
 
     /**
@@ -35,7 +38,19 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Data =  $request->validate(
+            [
+                'email' => 'email|unique:customers,email',
+                'password' => 'required',
+                'phone' => 'required',
+                'gender' => 'required',
+                'status' => 'required',
+                'name' => 'required',
+            ]
+        );
+        // dd($Data);
+        Customer::create($Data);
+        return \redirect()->route('customers.index');
     }
 
     /**
@@ -44,9 +59,10 @@ class CustomerController extends Controller
      * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function show(Customer $customer)
+    public function show($customer)
     {
-        //
+        return $this->ChangeStatusByModel(Customer::class ,$customer);
+        // return red
     }
 
     /**
@@ -80,6 +96,7 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-        //
+        $customer->delete();
+        return redirect()->back();
     }
 }

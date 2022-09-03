@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title' , 'add Slider Home');
+@section('title' , 'mohammed altigani');
 @section('content')
 <div>
     <div class="content-wrapper">
@@ -29,7 +29,7 @@
                             <div class="card-content">
                                 <div class="card-body cleartfix">
                                     <div class="card">
-                                        <form action="{{ route('homeSlider.update', $homeSlider->id)}}" method="post" enctype="multipart/form-data">
+                                        <form action="{{ route('products.update', $product->id) }}" method="post" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
                                         <div class="row">
@@ -37,16 +37,15 @@
                                                 <div class="form-group">
                                                     <label for="">name </label>
                                                     <input type="text" class="form-control" name="name" id=""
-                                                    value="{{ $homeSlider->name ?? '' }}"
+                                                    value="{{ $product->name ?? '' }}"
                                                         aria-describedby="helpId" placeholder="type a product name ">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="">short descrption </label>
-                                                    <input type="text" class="form-control"
-                                                    value="{{ $homeSlider->short_description ?? '' }}"
-                                                    name="short_description" id=""
+                                                    <input type="text" class="form-control" name="short_descrption" id=""
+                                                    value="{{ $product->short_descrption ?? '' }}"
                                                         aria-describedby="helpId" placeholder="type a product name ">
                                                 </div>
                                             </div>
@@ -54,21 +53,50 @@
                                                 <div class="form-group">
                                                     <label for="">price </label>
                                                     <input type="text"
-                                                    value="{{ $homeSlider->regular_price ?? '' }}"
+                                                    value="{{ $product->reqular_price ?? '' }}"
                                                     class="form-control" name="price" id=""
                                                         aria-describedby="helpId" placeholder="type a product name ">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="">description </label>
-                                                    <input type="text"
-                                                    value="{{ $homeSlider->description ?? '' }}"
-                                                    class="form-control" name="description" id=""
+                                                    <label >stock </label>
+                                                    <select name="stock" class="form-control">
+                                                        <option value="inStock" {{ $product->stock !== "inStock" ?:"selected"}}>in stock</option>
+                                                        <option value="outStock"  {{ $product->stock !== "outStock" ?:"selected"}}>out of stock</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="">Quantitiy </label>
+                                                    <input type="text" class="form-control"
+                                                    value="{{ $product->quantitiy ?? '' }}"
+                                                    name="quantitiy" id=""
                                                         aria-describedby="helpId" placeholder="type a product name ">
                                                 </div>
                                             </div>
-
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label > Category </label>
+                                                    <select name="category_id" class="form-control" >
+                                                        @foreach ($Categories as $Category)
+                                                            <option value="{{ $Category->id }}" wire:
+                                                                {{ $product->category_id !== $Category->id ?:"selected"}}
+                                                                >{{ $Category->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                <label for="">SKU</label>
+                                                <input type="text"
+                                                    class="form-control" name="SKU"
+                                                    value="{{ $product->SKU ?? '' }}"
+                                                    id="" aria-describedby="helpId" placeholder="">
+                                                </div>
+                                            </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                 <label for="">image</label>
@@ -76,7 +104,14 @@
                                                     class="form-control" name="image" id="" aria-describedby="helpId" placeholder="">
                                                 </div>
                                             </div>
-                                        </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                <div>
+                                                    <label for="">description</label>
+                                                </div>
+                                                <textarea id="mytextarea" name="description">
+                                                </textarea>
+                                            </div>
                                             <div class="row m-2">
                                                 <button class="btn btn-primary">save</button>
                                             </div>
@@ -118,7 +153,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="">category name</label>
-                        <input type="text" class="form-control" name="name" id="" aria-describedby="helpId"
+                        <input type="text" class="form-control" name="name" value='{{ $product->name ?? ' ' }}' id="" aria-describedby="helpId"
                             placeholder=" enter category name">
                     </div>
                     <button class="btn btn-sm">
@@ -137,6 +172,14 @@
 @endsection
 
 @push('scripts')
+<script src='https://cdn.tiny.cloud/1/3nycdho7e3u1n1php0pt4s6vbvl7kl5j87566r2g5jfihdcj/tinymce/5/tinymce.min.js' referrerpolicy="origin">
+</script>
+<script>
+  tinymce.init({
+    selector: '#mytextarea'
+  });
+</script>
+</head>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     function FireSweetAlert(id){

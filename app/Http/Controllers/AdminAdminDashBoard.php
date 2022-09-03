@@ -13,7 +13,7 @@ class AdminAdminDashBoard extends Controller
         $data['customer_count'] = Customer::count();
         $data['order_count'] = Order::count();
         $data['order_income'] = Order::sum('total');
-        $data['todays_orders'] = Order::where('order_date', 'like', date('Y-m-d') . "%")->count();
+        $data['todays_orders'] = Order::where('created_at', 'like', date('Y-m-d') . "%")->count();
 
         return view('Admin.index', $data);
     }

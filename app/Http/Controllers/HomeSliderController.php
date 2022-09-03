@@ -49,11 +49,8 @@ class HomeSliderController extends Controller
             'image' => 'required',
         ];
         // validaot fails ----------------------------
-        $Validator = validator($request->all(), $rules);
+        $request->validate($rules);
 
-        if($Validator->fails()){
-            return $Validator->errors();
-        }
         // $request->image->move(publi)
 
         $fileName = time() . '.' . $request->image->extension();
@@ -88,7 +85,7 @@ class HomeSliderController extends Controller
      */
     public function edit(HomeSlider $homeSlider)
     {
-        //
+        return view('Admin.slider.edit', compact('homeSlider'));
     }
 
     /**
@@ -100,7 +97,25 @@ class HomeSliderController extends Controller
      */
     public function update(Request $request, HomeSlider $homeSlider)
     {
-        //
+        $rules = [
+            'name' => 'required',
+            'price' => 'required',
+            'short_description' => 'required',
+            'description' => 'required',
+            'image' => 'required',
+        ];
+        // validaot fails ----------------------------
+        $request->validate($rules);
+        // dd('heelo');
+        // $request->image->move(publi)
+        $fileName = time() . '.' . $request->image->extension();
+        $request->image->move(public_path('assets/images/images/blogs/'), $fileName);
+        $request['regular_price'] = $request->price;
+        $UpdatedSliderData = $request->except('_token', 'price', 'image',  '_method');
+        // dd($UpdatedSliderData);
+        $HomeSlider  =  $homeSlider::updated($UpdatedSliderData);
+        notify()->success('home Slider Option Added Sucessfuly'  , 'Success  Messages');
+        return redirect()->route('homeSlider.index');
     }
 
     /**
@@ -111,6 +126,7 @@ class HomeSliderController extends Controller
      */
     public function destroy(HomeSlider $homeSlider)
     {
-        //
+        $homeSlider->delete();
+        return redirect()->back();
     }
 }

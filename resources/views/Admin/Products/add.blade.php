@@ -58,7 +58,7 @@
                                                     <label >stock </label>
                                                     <select name="stock" class="form-control">
                                                         <option value="inStock">in stock</option>
-                                                        <option value="outOfStock">out of stock</option>
+                                                        <option value="outStock">out of stock</option>
                                                     </select>
                                                 </div>
                                             </div>

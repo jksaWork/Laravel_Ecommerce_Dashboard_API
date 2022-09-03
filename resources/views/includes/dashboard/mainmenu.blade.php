@@ -6,7 +6,7 @@ $permission = Spatie\Permission\Models\Permission::get();
     <div class="main-menu-content ps-container ps-theme-dark ps-active-y"
         data-ps-id="8b0cb816-c612-9fbc-4ca0-0760388c8785" style="height: 697px;">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class="nav-item {{-- request()->routeIs('home')?'active':'' --}}"><a href="{{route('home')}}"><i
+            <li class="nav-item {{-- request()->routeIs('home')?'active':'' --}}"><a href="{{route('admin.dashboard')}}"><i
                         class="la la-home"></i><span class="menu-title"
                         data-i18n="nav.changelog.main">{{__('translation.dashboard')}}</span></a>
             </li>
@@ -16,8 +16,9 @@ $permission = Spatie\Permission\Models\Permission::get();
                         data-i18n="nav.changelog.main"> categories </span></a>
             </li>
             <li class="nav-item {{ request()->routeIs('orders')?'active':'' }}"><a
-                href="{{route('orders')}}"><i
-                    class="la la-list-alt"></i><span class="menu-title"
+                href="{{route('orders')}}">
+                <i class="las la-sort-amount-down"></i>
+                <span class="menu-title"
                     data-i18n="nav.changelog.main"> Orders </span></a>
         </li>
         <li class="nav-item {{ request()->routeIs('admin.contact.us')?'active':'' }}"><a
@@ -31,8 +32,9 @@ $permission = Spatie\Permission\Models\Permission::get();
         </li>
 
 
-            <li class="nav-item has-sub {{ request()->is('products/*') ? 'open':'' }}"><a href="#"><i
-                        class="la la-list-alt"></i><span class="menu-title" data-i18n="nav.templates.main"> Products
+            <li class="nav-item has-sub {{ request()->is('products/*') ? 'open':'' }}"><a href="#">
+                <i class="la la-rss"></i>
+                <span class="menu-title" data-i18n="nav.templates.main"> Products
                         mangement</span></a>
                 <ul class="menu-content" style="">
                     <li class="is-shown {{request()->routeIs('products.index') ? 'active':'' }}">
@@ -42,24 +44,21 @@ $permission = Spatie\Permission\Models\Permission::get();
                     <li class="is-shown {{ request()->routeIs('homeSlider.index')?'active':'' }}"><a class="menu-item"
                             href="{{ route('homeSlider.index') }}" data-i18n="nav.dash.crypto"> Home Slider </a>
                     </li>
-
                 </ul>
             </li>
-            <li class="nav-item has-sub {{ request()->is('products/*') ? 'open':'' }}"><a href="#"><i
-                class="la la-list-alt"></i><span class="menu-title" data-i18n="nav.templates.main"> Customers
+            <li class="nav-item has-sub {{ request()->is('customers/*') ? 'open':'' }}"><a href="#"><i
+                class="la la-users"></i><span class="menu-title" data-i18n="nav.templates.main"> Customers
                 mangement</span></a>
         <ul class="menu-content" style="">
-            <li class="is-shown {{request()->routeIs('products.index') ? 'active':'' }}">
-                <a class="menu-item" href="{{route('products.index') }}" data-i18n="nav.dash.ecommerce"> Show
-                    All Products </a>
+            <li class="is-shown {{request()->routeIs('customers.create') ? 'active':'' }}">
+                <a class="menu-item" href="{{route('customers.create') }}" data-i18n="nav.dash.ecommerce"> Add
+                    </a>
             </li>
-            <li class="is-shown {{ request()->routeIs('homeSlider.index')?'active':'' }}"><a class="menu-item"
-                    href="{{ route('homeSlider.index') }}" data-i18n="nav.dash.crypto"> Home Slider </a>
+            <li class="is-shown {{ request()->routeIs('customers.index')?'active':'' }}"><a class="menu-item"
+                    href="{{ route('customers.index') }}" data-i18n="nav.dash.crypto">  Show Customers </a>
             </li>
-
         </ul>
     </li>
-
             <li class="nav-item {{ request()->routeIs('admin.setting')?'active':'' }}"><a
                 href="{{route('admin.setting')}}"><i
                 class="la la-cog"></i><span class="menu-title"

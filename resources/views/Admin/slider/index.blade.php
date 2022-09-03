@@ -69,11 +69,11 @@
                                                             <td>{!! $data->status !!}</td>
                                                             <td>
                                                                 <div style="min-width: 200"></div>
-                                                                <button data-toggle="modal" data-target="#updateModal"
-                                                                    data-backdrop="static" data-keyboard="false" class="btn btn-sm btn-icon
-                                                                    btn-primary"><i class="la la-edit"></i></button>
+                                                                <a href="{{ route('homeSlider.edit' , $data->id) }}"
+                                                                    class="btn btn-sm btn-icon
+                                                                    btn-primary"><i class="la la-edit"></i></a>
                                                                 <form
-                                                                    action="{{ route('categories.destroy', $data->id) }}"
+                                                                    action="{{ route('homeSlider.destroy', $data->id) }}"
                                                                     id='delete_form_{{ $data->id }}'
                                                                     method="post"
                                                                     style="display: inline-block" >
@@ -173,7 +173,7 @@
         // e.preventDefault();
         // console.log(e.target);
             Swal.fire({
-  title: 'Do you want to Delete the Category ?',
+  title: 'Do you want to Delete this Home Slide ?',
   showDenyButton: true,
 //   showCancelButton: true,
   confirmButtonText: 'Delete',

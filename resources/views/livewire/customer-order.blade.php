@@ -36,7 +36,7 @@
                         </div>
                         <div class="description__info-wrap">
                             <div>
-                                <span class="manage-o__badge {{ $item->OrderBadgeClass() }}">Delivered</span></div>
+                                <span class="manage-o__badge {{ $item->OrderBadgeClass() }}">{{ $item->status }}</span></div>
                             <div>
                                 <span class="manage-o__text-2 u-c-silver"> subtotal:
                                     <span class="manage-o__text-2 u-c-secondary">{{ $item->sub_total }}</span></span></div>

@@ -72,17 +72,13 @@
                             <span class="dash__text u-s-m-b-16">Hello, {{ auth()->user()->name ?? '-' }}</span>
                             <ul class="dash__f-list">
                                 <li>
-                                    <a class="{{ request()->routeIs('MangeMyProfile') ? "dash-active" : ""  }}" href="dashboard.html">Manage My Account</a>
+                                    <a class="{{ request()->routeIs('MangeMyProfile') ? "dash-active" : ""  }}" href="{{ route('MangeMyProfile') }}">Manage My Account</a>
                                 </li>
                                 <li>
                                     <a   class="{{ request()->routeIs('MyProfile') ? "dash-active" : ""  }}" href="{{ route('MyProfile') }}">My Profile</a>
                                 </li>
                                 <li>
                                     <a  class="{{ request()->routeIs('my.ordres') ? "dash-active" : ""  }}" href="{{ route('my.ordres') }}">My Orders</a>
-                                </li>
-                                <li>
-
-                                    <a href="dash-cancellation.html">My Returns &amp; Cancellations</a>
                                 </li>
                             </ul>
                         </div>
